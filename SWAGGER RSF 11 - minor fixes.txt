@@ -483,22 +483,8 @@ definitions:
       CreatedBy:
         type: "string"
       ModifiedBy:
-        type: "string"
-  #ReturnOperationHistory: 
-  #  type: "object"
-  #  properties:
-  #    Id:
-  #      type: "integer"
-  #      format: "int64"
-  #    Created:
-  #      type: "string"
-  #      format: "date-time"
-  #    Modified:
-  #      type: "string"
-  #      format: "date-time"  
-  #    Title:
-  #      type: "string"
-  ReturnOperationHistoryRow: #NOTICE: this list has folders, so i created "ReturnOperationHistoryRow"
+        type: "string" 
+  ReturnOperationHistory: #NOTICE: this list has folders, so i created "ReturnOperationHistoryRow"
     type: "object"
     properties:
       Id:
@@ -892,7 +878,7 @@ definitions:
         type: "integer"
       TextValue:
         type: "string"
-  Dictionary: # MC proposed approach to dictionary values with dictionary table, and dictionaryvalue table
+  Dictionary: # Approach to dictionary values with Dictionary table, and DictionaryValue table
     type: "object"
     properties: 
       Id:
@@ -910,7 +896,7 @@ definitions:
         format: "int64"
       Name:
         type: "string"
-      Code:
+      Code: # @Notice: Can be used for multilanguage solutions
         type: "string"
       DictionaryId:
         type: "integer"
