@@ -668,48 +668,48 @@ definitions:
       BookingExpirationDate:
         type: "string"
         format: "date-time"
-      Carrier:
-        type: "string"
-      FlightNo:
-        type: "string"
-      OriginAirport:
-        type: "string"
-      DepartureTime:
-        type: "string"
-        format: "date-time"
-      DestinationAirport:
-        type: "string"
-      ArrivalTime:
-        type: "string"
-        format: "date-time"  
-      FlightTime:
-        type: "string"
-      IsReturnFlightIncluded:
-        type: "boolean"
-      OriginTerminal:
-        type: "string"
-      DestinationTerminal:
-        type: "string"
-      CarrierReturn: #@Notice - on list those *Return fields were named as *_R
-        type: "string"
-      FlightNoReturn:
-        type: "string"
-      OriginAirportReturn:
-        type: "string"
-      DepartureTimeReturn:
-        type: "string"
-        format: "date-time"
-      DestinationAirportReturn:
-        type: "string"
-      ArrivalTimeReturn:
-        type: "string"
-        format: "date-time"  
-      FlightTimeReturn:
-        type: "string"
-      OriginTerminalReturn:
-        type: "string"
-      DestinationTerminalReturn:
-        type: "string" 
+      #Carrier: @Refactor: this is incluced in OffersLeg
+      #  type: "string"
+      #FlightNo:
+      #  type: "string"
+      #OriginAirport:
+      #  type: "string"
+      #DepartureTime:
+      #  type: "string"
+      #  format: "date-time"
+      #DestinationAirport:
+      #  type: "string"
+      #ArrivalTime:
+      #  type: "string"
+      #  format: "date-time"  
+      #FlightTime:
+      #  type: "string"
+      #IsReturnFlightIncluded:
+      #  type: "boolean"
+      #OriginTerminal:
+      #  type: "string"
+      #DestinationTerminal:
+      #  type: "string"
+      #CarrierReturn: #@Notice - on list those *Return fields were named as *_R
+      #  type: "string"
+      #FlightNoReturn:
+      #  type: "string"
+      #OriginAirportReturn:
+      #  type: "string"
+      #DepartureTimeReturn:
+      #  type: "string"
+      #  format: "date-time"
+      #DestinationAirportReturn:
+      #  type: "string"
+      #ArrivalTimeReturn:
+      #  type: "string"
+      #  format: "date-time"  
+      #FlightTimeReturn:
+      #  type: "string"
+      #OriginTerminalReturn:
+      #  type: "string"
+      #DestinationTerminalReturn:
+      #  type: "string" 
       TicketingDueDateTime:
         type: "string"
         format: "date-time" 
