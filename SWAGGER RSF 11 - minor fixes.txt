@@ -51,11 +51,15 @@ definitions:
         format: "int64"
       Active: 
         type: "boolean"
-      CityCode:
-        type: "string"
+      City:
+        $ref: "#/definitions/City"
+      Country:
+        $ref: "#/definitions/Country"
+      #CityCode:            #replaced by City and Country
+      #  type: "string"
+      #CountryCode:
+      #  type: "string"
       Code:
-        type: "string"
-      CountryCode:
         type: "string"
       IsValidDestination:
         type: "boolean"
@@ -73,12 +77,14 @@ definitions:
         type: "string"
       Name:
         type: "string"
-      CountryCode:
-        type: "string"
-      IsValidDestination:
-        type: "boolean"
-      IsValidOrigin:
-        type: "boolean"
+      Country:
+        $ref: "#/definitions/Country"
+      #CountryCode: @Refactor - This properties are not required since Country contains them
+      #  type: "string"
+      #IsValidDestination: @Refactor - This properties are not required since AirPort contains them
+      #  type: "boolean"
+      #IsValidOrigin:
+      #  type: "boolean"
       Active: 
         type: "boolean"
   Country:
@@ -91,8 +97,8 @@ definitions:
         type: "string"
       Name:
         type: "string"
-      IsValidOrigin:
-        type: "boolean"
+      #IsValidOrigin: @Refactor - This properties are not required since AirPort contains them
+      #  type: "boolean"
       Active:
         type: "boolean"
   DestinationLocation:
@@ -119,9 +125,11 @@ definitions:
       Id:
         type: "integer"
         format: "int64"
-      ReturnOperationID:
-        type: "integer"
-        format: "int64"
+      #ReturnOperation: @Refactor - added reference to ReturnOperation in property "MasterRecordOperation"
+      #  $ref: "#/definitions/ReturnOperation"
+      #ReturnOperationID: 
+      #  type: "integer"
+      #  format: "int64"
       MessageType: # @Dictionary
         $ref: "#/definitions/DictionaryValue"
         #type: "string"
@@ -164,8 +172,10 @@ definitions:
       DepartureTime:
         type: "string"
         format: "date-time"
-      DestinationAirport: 
-        type: "string"
+      DestinationAirport: #@Refactor - Decided to connect with Airport
+        $ref: "#/definitions/Airport" 
+      #DestinationAirport: 
+      #  type: "string"
       DestinationTerminal:
         type: "string"
       FlightNo: 
@@ -175,11 +185,15 @@ definitions:
       Modified: 
         type: "string"
         format: "date-time"
-      OfferId:
-        type: "integer"
-        format: "int64"
-      OriginAirport:
-        type: "string"
+      Offer: # @Refactor - decided to connect with Offer
+        $ref: "#/definitions/Offer" 
+      #OfferId:
+      #  type: "integer"
+      #  format: "int64"
+      OriginAirport: # @Refactor - decided to connect with Offer
+        $ref: "#/definitions/Airport" 
+      #OriginAirport:
+      #  type: "string"
       OriginTerminal:
         type: "string"
       ReturnOperationID:
@@ -205,8 +219,8 @@ definitions:
       DepartureTime:
         type: "string"
         format: "date-time"
-      DestinationAirport: 
-        type: "string"
+      DestinationAirport: #@Refactor - changed to lookup
+        $ref: "#/definitions/Airport" 
       FlightDetails:
         type: "string"
       FlightTime:
@@ -216,13 +230,14 @@ definitions:
       Modified: 
         type: "string"
         format: "date-time"
-      OfferCategory:
-        type: "string"
+      #OfferCategory: - @Refactor: obsolete
+      #type: "string"
       OperationDate:
         type: "string"
         format: "date-time"
-      OriginAirport:
-        type: "string"
+      OriginAirport: #@Refactor - changed to lookup
+        $ref: "#/definitions/Airport" 
+        #type: "string"
       ReturnOperationID:
         type: "integer"
         format: "int64"
@@ -288,8 +303,8 @@ definitions:
         #enum:
         #- "Male"
         #- "Female"
-      GrossValue:
-        type: "number"
+      #GrossValue: # @Refactor - would be used, but not sure if in this entity
+      #  type: "number"
       LastName:
         type: "string"
       Modified:
@@ -414,7 +429,7 @@ definitions:
         #- "Unaccepted by local authorities"
         #- "Flight delay / cancelation"
         #- "Verbal refusal of the returnee"
-      ReturnOperationId:
+      ReturnOperationId: # @ToDo: @Refactor: Many to many? Need to check this out!
         type: "integer"
         format: "int64"
       Signature:
@@ -436,7 +451,7 @@ definitions:
         type: "string"
       ModifiedBy:
         type: "string"
-  Recipient:
+  Recipient: # @Refactor: @Todo: Might be in use, redesign needed.
     type: "object"
     properties:
       Id:
@@ -448,8 +463,9 @@ definitions:
         type: "string"
       CC:
         type: "string"
-      Country:
-        type: "string"
+      Country: # @Refactor: changed to lookup
+        $ref: "#/definitions/Country"
+        #type: "string"
       Created:
         type: "string"
         format: "date-time"
@@ -468,21 +484,21 @@ definitions:
         type: "string"
       ModifiedBy:
         type: "string"
-  ReturnOperationHistory: #NOTICE: this list has folders, so i create also "ReturnOperationHistoryRow" @ToDo:Refactor This might be uselles now.
-    type: "object"
-    properties:
-      Id:
-        type: "integer"
-        format: "int64"
-      Created:
-        type: "string"
-        format: "date-time"
-      Modified:
-        type: "string"
-        format: "date-time"  
-      Title:
-        type: "string"
-  ReturnOperationHistoryRow:
+  #ReturnOperationHistory: 
+  #  type: "object"
+  #  properties:
+  #    Id:
+  #      type: "integer"
+  #      format: "int64"
+  #    Created:
+  #      type: "string"
+  #      format: "date-time"
+  #    Modified:
+  #      type: "string"
+  #      format: "date-time"  
+  #    Title:
+  #      type: "string"
+  ReturnOperationHistoryRow: #NOTICE: this list has folders, so i created "ReturnOperationHistoryRow"
     type: "object"
     properties:
       Id:
@@ -497,9 +513,8 @@ definitions:
       Date:
         type: "string"
         format: "date-time" 
-      ReturnOperationId: #Notice: could be rearanged to create relation if needed
-        type: "integer"
-        format: "int64"
+      ReturnOperationId: 
+        $ref: "#/definitions/ReturnOperation"
       Action:
         type: "string"
       Value:
