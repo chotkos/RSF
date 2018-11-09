@@ -539,8 +539,13 @@ definitions:
         type: "string"
       FlightDetails:
         type: "string"
-      RequestType:
-        type: "string"
+      RequestType: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum: 
+        #- "DEPA"
+        #- "DEPU"
+        #- "Suplmentary Request"
       RequestForSpecialNeeds: # @Dictionary
         $ref: "#/definitions/DictionaryValue"
         #type: "string"
@@ -811,12 +816,9 @@ definitions:
       FlightDelayCancellation:
         type: "integer"
       Other:
-        type: "integer"
-      ReturnOperationId: # @Refactor: @Todo: Is there any connection between them? What is masterreturn?
-        type: "integer"
-        format: "int64"
+        type: "integer" 
       MasterReturnOperation:
-        type: "string"
+        $ref: "#/definitions/ReturnOperation"
       #FirstName: # @Refactor - These you can find in passengers, surely obsolete
       #  type: "string"
       #LastName:
@@ -874,7 +876,7 @@ definitions:
         type: "integer"
       TextValue:
         type: "string"
-  Dictionary: # Approach to dictionary values with Dictionary table, and DictionaryValue table
+  Dictionary: # @Notice: Approach to dictionary values with Dictionary table, and DictionaryValue table
     type: "object"
     properties: 
       Id:
