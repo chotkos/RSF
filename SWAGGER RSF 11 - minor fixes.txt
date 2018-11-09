@@ -239,8 +239,7 @@ definitions:
         $ref: "#/definitions/Airport" 
         #type: "string"
       ReturnOperationID:
-        type: "integer"
-        format: "int64"
+        $ref: "#/definitions/ReturnOperation" 
       WaitingTimeInMinutes: 
         type: "integer"
       CreatedBy:
@@ -303,8 +302,8 @@ definitions:
         #enum:
         #- "Male"
         #- "Female"
-      #GrossValue: # @Refactor - would be used, but not sure if in this entity
-      #  type: "number"
+      GrossValue: # @Notice - would be used, but not sure if in this entity
+        type: "number"
       LastName:
         type: "string"
       Modified:
@@ -429,9 +428,11 @@ definitions:
         #- "Unaccepted by local authorities"
         #- "Flight delay / cancelation"
         #- "Verbal refusal of the returnee"
-      ReturnOperationId: # @ToDo: @Refactor: Many to many? Need to check this out!
-        type: "integer"
-        format: "int64"
+      #ReturnOperationId: # @Refactor: Added Lookup
+      #  type: "integer"
+      #  format: "int64"
+      ReturnOperation:
+        $ref: "#/definitions/ReturnOperation"
       Signature:
         type: "string"
       Status:
@@ -816,31 +817,25 @@ definitions:
         type: "integer"
       Other:
         type: "integer"
-      ReturnOperationId:
+      ReturnOperationId: # @Refactor: @Todo: Is there any connection between them? What is masterreturn?
         type: "integer"
         format: "int64"
       MasterReturnOperation:
         type: "string"
-      FirstName:
-        type: "string"
-      LastName:
-        type: "string"
-      Gender: # @Dictionary
-        $ref: "#/definitions/DictionaryValue"
-        #type: "string"
-        #enum:
-        #- "Male"
-        #- "Femaile"
-      Email:
-        type: "string"
-      Phone:
-        type: "string"
-      Notes:
-        type: "string"
-      Anonymized:
-        type: "boolean"
-      AnonymizedTickets:
-        type: "boolean"
+      #FirstName: # @Refactor - These you can find in passengers, surely obsolete
+      #  type: "string"
+      #LastName:
+      #  type: "string"
+      #Gender: # @Dictionary
+      #  $ref: "#/definitions/DictionaryValue"
+      #  #type: "string"
+      #  #enum:
+      #  #- "Male"
+      #  #- "Femaile"
+      #Email:
+      #  type: "string"
+      #Phone:
+      #  type: "string"
       PassengerRole: # @Dictionary
         $ref: "#/definitions/DictionaryValue"
         #type: "string"
@@ -849,6 +844,12 @@ definitions:
         #- "Medical Staff"
         #- "Monitor"
         #- "Interpreter"
+      Notes:
+        type: "string"
+      Anonymized:
+        type: "boolean"
+      AnonymizedTickets:
+        type: "boolean"
       MSSACConfirms:
         type: "boolean"
       CreatedBy:
