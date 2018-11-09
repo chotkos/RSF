@@ -54,11 +54,7 @@ definitions:
       City:
         $ref: "#/definitions/City"
       Country:
-        $ref: "#/definitions/Country"
-      #CityCode:            #replaced by City and Country
-      #  type: "string"
-      #CountryCode:
-      #  type: "string"
+        $ref: "#/definitions/Country" 
       Code:
         type: "string"
       IsValidDestination:
@@ -78,9 +74,7 @@ definitions:
       Name:
         type: "string"
       Country:
-        $ref: "#/definitions/Country"
-      #CountryCode: @Refactor - This properties are not required since Country contains them
-      #  type: "string"
+        $ref: "#/definitions/Country" 
       #IsValidDestination: @Refactor - This properties are not required since AirPort contains them
       #  type: "boolean"
       #IsValidOrigin:
@@ -125,8 +119,8 @@ definitions:
       Id:
         type: "integer"
         format: "int64"
-      #ReturnOperation: @Refactor - added reference to ReturnOperation in property "MasterRecordOperation"
-      #  $ref: "#/definitions/ReturnOperation"
+      ReturnOperation: 
+        $ref: "#/definitions/ReturnOperation"
       #ReturnOperationID: 
       #  type: "integer"
       #  format: "int64"
@@ -141,8 +135,8 @@ definitions:
         type: "string"
       MessageContent:
         type: "string"
-      Country:
-        type: "string"
+      Country: # @Refactor: added reference
+        $ref: "#/definitions/Country" 
       Created:
         type: "string"
         format: "date-time"
@@ -837,14 +831,14 @@ definitions:
       #  type: "string"
       #Phone:
       #  type: "string"
-      PassengerRole: # @Dictionary
-        $ref: "#/definitions/DictionaryValue"
-        #type: "string"
-        #enum:
-        #- "Escort"
-        #- "Medical Staff"
-        #- "Monitor"
-        #- "Interpreter"
+      #PassengerRole: # @Dictionary
+      #  $ref: "#/definitions/DictionaryValue"
+      #  #type: "string"
+      #  #enum:
+      #  #- "Escort"
+      #  #- "Medical Staff"
+      #  #- "Monitor"
+      #  #- "Interpreter"
       Notes:
         type: "string"
       Anonymized:
