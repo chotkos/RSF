@@ -282,11 +282,12 @@ definitions:
         type: "string"
       GDSNumber:
         type: "string"
-      Gender:
-        type: "string"
-        enum:
-        - "Male"
-        - "Female"
+      Gender: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "Male"
+        #- "Female"
       GrossValue:
         type: "number"
       LastName:
@@ -899,3 +900,27 @@ definitions:
       DictionaryId:
         type: "integer"
         format: "int64"
+        
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
