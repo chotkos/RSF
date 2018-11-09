@@ -1,0 +1,901 @@
+swagger: "2.0"
+info:
+  description: "This is project of samle server for RSF V2. You can easily convert this file to json on editor.swagger.io and then import it into Azure API Management Service ."
+  version: "1.0.0"
+  title: "RSF API"
+  termsOfService: "https://frontex.europa.eu/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+- name: "example-tag"
+  description: "Description of example tag"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+paths:
+  /notimplemented:
+    get:
+      tags:
+      - "tech"
+      responses:
+        501:
+          description: "Not implemented"
+definitions: 
+  Airline:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Code:
+        type: "string"
+      Name:
+        type: "string"
+      AirlineLogo: 
+        type: "string"
+      Active: 
+        type: "boolean"
+  Airport: 
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Active: 
+        type: "boolean"
+      CityCode:
+        type: "string"
+      Code:
+        type: "string"
+      CountryCode:
+        type: "string"
+      IsValidDestination:
+        type: "boolean"
+      IsValidOrigin:
+        type: "boolean"
+      Name:
+        type: "string"
+  City:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Code:
+        type: "string"
+      Name:
+        type: "string"
+      CountryCode:
+        type: "string"
+      IsValidDestination:
+        type: "boolean"
+      IsValidOrigin:
+        type: "boolean"
+      Active: 
+        type: "boolean"
+  Country:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Code:
+        type: "string"
+      Name:
+        type: "string"
+      IsValidOrigin:
+        type: "boolean"
+      Active:
+        type: "boolean"
+  DestinationLocation:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Name:
+        type: "string"
+      Code:
+        type: "string"
+      LocationType: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "Airport"
+        #- "City"
+      Active:
+        type: "boolean"
+  Message:
+    type: "object"
+    properties: 
+      Id:
+        type: "integer"
+        format: "int64"
+      ReturnOperationID:
+        type: "integer"
+        format: "int64"
+      MessageType: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "Message to eTravel"
+        #- "Message to Frontex"
+        #- "Message to developers"
+      Subject:
+        type: "string"
+      MessageContent:
+        type: "string"
+      Country:
+        type: "string"
+      Created:
+        type: "string"
+        format: "date-time"
+      Modified:
+        type: "string"
+        format: "date-time"
+      CreatedBy:
+        type: "string"
+      MasterRecordOperation:
+        $ref: "#/definitions/ReturnOperation" #lookup-Return operations
+  OffersLeg:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      ArrivalTime: 
+        type: "string"
+        format: "date-time"
+      AvailableSeats:
+        type: "integer" 
+      Carrier:
+        type: "string"
+      Created:
+        type: "string"
+        format: "date-time"
+      DepartureTime:
+        type: "string"
+        format: "date-time"
+      DestinationAirport: 
+        type: "string"
+      DestinationTerminal:
+        type: "string"
+      FlightNo: 
+        type: "string"
+      FlightTime:
+        type: "string"
+      Modified: 
+        type: "string"
+        format: "date-time"
+      OfferId:
+        type: "integer"
+        format: "int64"
+      OriginAirport:
+        type: "string"
+      OriginTerminal:
+        type: "string"
+      ReturnOperationID:
+        type: "integer"
+        format: "int64"
+      SequenceNumber: 
+        type: "integer"
+      WaitingTimeInMinutes: 
+        type: "integer"
+  Offer:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      ArrivalTime: 
+        type: "string"
+        format: "date-time"
+      #cmd_OfferConfirmation # Used for frontend hack, not needed
+      Created:
+        type: "string"
+        format: "date-time"
+      DepartureTime:
+        type: "string"
+        format: "date-time"
+      DestinationAirport: 
+        type: "string"
+      FlightDetails:
+        type: "string"
+      FlightTime:
+        type: "string"
+      FlightId:
+        type: "string"
+      Modified: 
+        type: "string"
+        format: "date-time"
+      OfferCategory:
+        type: "string"
+      OperationDate:
+        type: "string"
+        format: "date-time"
+      OriginAirport:
+        type: "string"
+      ReturnOperationID:
+        type: "integer"
+        format: "int64"
+      WaitingTimeInMinutes: 
+        type: "integer"
+      CreatedBy:
+        type: "string"
+      ModifiedBy:
+        type: "string"
+  OriginLocation:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Active:
+        type: "boolean"
+      Code:
+        type: "string"
+      Created:
+        type: "string"
+        format: "date-time"
+      LocationType: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string" 
+        #enum:
+        #- "Country"
+        #- "City"
+        #- "Airport"
+      Modified:
+        type: "string"
+        format: "date-time"
+      Name:
+        type: "string"
+  Passenger:    
+    type: "object"      
+    properties:    
+      AgeGroup: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string" 
+        #enum:
+        #- "Adult"
+        #- "Minor"
+        #- "Infant"
+      Comments:
+        type: "string"
+      Confirmed: 
+        type: "boolean"
+      Created:
+        type: "string"
+        format: "date-time"
+      Currency:
+        type: "string"
+      Email:
+        type: "string"
+      FirstName: 
+        type: "string"
+      GDSNumber:
+        type: "string"
+      Gender:
+        type: "string"
+        enum:
+        - "Male"
+        - "Female"
+      GrossValue:
+        type: "number"
+      LastName:
+        type: "string"
+      Modified:
+        type: "string"
+        format: "date-time"
+      Nationality: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "Afghan"
+        #- "Albanian"
+        #- "Algerian"
+        #- "Angolan"
+        #- "Argentinian"
+        #- "Armenian"
+        #- "Azerbaijani"
+        #- "Bangladeshi"
+        #- "Belarusian"
+        #- "Beninese"
+        #- "Bosnian"
+        #- "Brazilian"
+        #- "Burkinese"
+        #- "Cambodian"
+        #- "Cameroonian"
+        #- "Central African"
+        #- "Chadian"
+        #- "Chilean"
+        #- "Chinese"
+        #- "Colombian"
+        #- "Congolese"
+        #- "Djiboutian"
+        #- "Egyptian"
+        #- "Equatorial Guinean"
+        #- "Ethiopian"
+        #- "FYROM"
+        #- "Gabonese"
+        #- "Georgian"
+        #- "Ghanaian"
+        #- "Guinean"
+        #- "Indian"
+        #- "Iranian"
+        #- "Iraqi"
+        #- "Ivoirian"
+        #- "Jordanian"
+        #- "Kenyan"
+        #- "Kosovar"
+        #- "Lebanese"
+        #- "Liberian"
+        #- "Malian"
+        #- "Mauritanian"
+        #- "Moldovan"
+        #- "Mongolian"
+        #- "Montenegrin"
+        #- "Moroccan"
+        #- "Namibian"
+        #- "Nepalese"
+        #- "Nigerian"
+        #- "Nigerien"
+        #- "Pakistani"
+        #- "Philippine"
+        #- "Russian"
+        #- "Rwandan"
+        #- "Senegalese"
+        #- "Serbian"
+        #- "Sierra Leonian"
+        #- "Somali"
+        #- "South African"
+        #- "Sri Lankan"
+        #- "Sudanese"
+        #- "Tanzanian"
+        #- "Togolese"
+        #- "Tunisian"
+        #- "Turkish"
+        #- "Ugandan"
+        #- "Ukrainian"
+        #- "Vietnamese"
+        #- "Yugoslav"
+      Notes:
+        type: "string"
+      PassengerType: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum: 
+        #- "DEPU"
+        #- "DEPA"
+        #- "Escort"
+        #- "Medical Staff"
+        #- "Monitor"
+        #- "Interpreter" 
+      Phone:
+        type: "string"
+      PNRNumber:
+        type: "string"
+      RemovalInformations: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "Family member of another passenger of this RO" 
+        #- "Medical Information Form required"
+        #- "Transit Authorisation Form required"
+        #- "Connecting Flight required" 
+      RequestForSpecialNeeds: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "Wheelchair"
+        #- "Stretcher"
+        #- "Oversized passenger"
+        #- "Blind person" 
+        #- "Oxygen"
+        #- ""
+      ResultAssesmentIfNotRemoved: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum: 
+        #- "Last minute asylum"
+        #- "Medical reasons"
+        #- "Lack of documents"
+        #- "Court decision"
+        #- "Violent behavior"
+        #- "Unaccepted by pilot in command"
+        #- "Unaccepted by local authorities"
+        #- "Flight delay / cancelation"
+        #- "Verbal refusal of the returnee"
+      ReturnOperationId:
+        type: "integer"
+        format: "int64"
+      Signature:
+        type: "string"
+      Status:
+        type: "string"
+      TicketNumber: 
+        type: "string"
+      TravelDocument: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "National Passport"
+        #- "National ID Card"
+        #- "EC Laissez-Passer"
+        #- "Covering / Guiding Letter"
+        #- "ETC"
+      CreatedBy:
+        type: "string"
+      ModifiedBy:
+        type: "string"
+  Recipient:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Active:
+        type: "boolean"
+      BCC:
+        type: "string"
+      CC:
+        type: "string"
+      Country:
+        type: "string"
+      Created:
+        type: "string"
+        format: "date-time"
+      GroupName:
+        type: "string"
+      Modified:
+        type: "string"
+        format: "date-time"
+      POC:
+        type: "string"
+      SPCountryCode:
+        type: "string"
+      To:
+        type: "string"
+      CreatedBy:
+        type: "string"
+      ModifiedBy:
+        type: "string"
+  ReturnOperationHistory: #NOTICE: this list has folders, so i create also "ReturnOperationHistoryRow" @ToDo:Refactor This might be uselles now.
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Created:
+        type: "string"
+        format: "date-time"
+      Modified:
+        type: "string"
+        format: "date-time"  
+      Title:
+        type: "string"
+  ReturnOperationHistoryRow:
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Created:
+        type: "string"
+        format: "date-time"
+      Modified:
+        type: "string"
+        format: "date-time"   
+      Date:
+        type: "string"
+        format: "date-time" 
+      ReturnOperationId: #Notice: could be rearanged to create relation if needed
+        type: "integer"
+        format: "int64"
+      Action:
+        type: "string"
+      Value:
+        type: "string"
+      RelativeTimeSpan:
+        type: "string"
+  ReturnOperation: # @ToDo:This entity surely contains multiple flight properties and should be redesigned
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Created:
+        type: "string"
+        format: "date-time"
+      Modified:
+        type: "string"
+        format: "date-time"
+      Title:
+        type: "string"
+      OperationDate:
+        type: "string"
+        format: "date-time"
+      NumberOfEscorts:
+        type: "integer"
+      NumberOfMonitors:
+        type: "integer"
+      AllowFlexibleDate:
+        type: "boolean"
+      NumberOfDEPA: 
+        type: "integer"
+      NumberOfDEPU: 
+        type: "integer"
+      NumberOfReturnees: 
+        type: "integer"
+      NumberOfStaff: 
+        type: "integer"
+      Status:
+        type: "string"
+      ServiceProviderStatus:
+        type: "string"
+      FlightDetails:
+        type: "string"
+      RequestType:
+        type: "string"
+      RequestForSpecialNeeds: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum: 
+        #- "Wheelchair"
+        #- "Stretcher"
+        #- "Oversized passenger"
+        #- "Blind person" 
+        #- "Oxygen"
+        #- ""
+      Remarks:
+        type: "string"
+      ReturnFlightAfter123:
+        type: "integer"
+      SystemNotification:
+        type: "string"
+      ValidDestinationCountry: # lookup - Country
+        $ref: "#/definitions/Country"
+      BookingSummary:
+        type: "string"
+      Stage:
+        type: "string"
+      Country: 
+        type: "string" #Notice: this might be lookup or same as validdestinationcountry
+      NumberOfMedicalStaff:
+        type: "integer"
+      NumberOfInterpreters:
+        type: "integer"
+      BookingConfirmed:
+        type: "boolean"
+      SSRConfirmed:
+        type: "boolean"
+      PassengersConfirmed:
+        type: "boolean"
+      TicketsIssued:
+        type: "boolean"
+      MissingFlashReport:
+        type: "boolean"
+      MissingFinalReport:
+        type: "boolean" 
+      #cmdPassengerList - #Notice: this cmd properties were required for form usage
+      #cmdQueuedTickets - #        now they are probably useless
+      #cmdIssuedTickets
+      #cmdFlashReport
+      #cmdFinalReport
+      #cmdBookingRequest
+      PassengersListSummary:
+        type: "string"
+      OperationResult: #@Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum: 
+        #- "Removed"
+        #- "Partially removed*"
+        #- "Not removed"
+      RecordedIncidents: #@Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum: 
+        #- "Damages"
+        #- "Restraints"
+        #- "Violend behavior :: Crew"
+        #- "Violend behavior :: Passengers"
+        #- "Violend behavior :: Escort"
+        #- "Violend behavior :: Staff" 
+      ResultAssesmentIfNotRemoved: #@Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum: 
+        #- "Last minute asylum"
+        #- "Medical reasons"
+        #- "Lack of documents"
+        #- "Court decision"
+        #- "Violent behavior"
+        #- "Unaccepted by pilot in command"
+        #- "Unaccepted by local authorities"
+        #- "Flight delay / cancelation"
+        #- "Verbal refusal of the returnee"
+      ResultAssesmentAnybodyInjured: #@Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum: 
+        #- "Crew"
+        #- "Passengers"
+        #- "Escort" 
+      Comments:
+        type: "string"
+      Signature:
+        type: "string"
+      SIRCreated:
+        type: "boolean"
+      NumberOfReturnedDeportees:
+        type: "integer"
+      RemovalInformations: #@Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #-  "Family member of another passenger of this RO"
+        #-  "Medical Information Form required"
+        #-  "Transit Authorisation Form required"
+        #-  "Connecting Flight required" 
+      FlashreportRequested:
+        type: "boolean"
+      FinalReportRequested:
+        type: "boolean"
+      TicketsRequested:
+        type: "boolean"
+      IsFlightDetailsAvailable:
+        type: "boolean"
+      AwaitingTickets:
+        type: "boolean"
+      DataValidated:
+        type: "boolean"
+      IsPassengersCreated:
+        type: "boolean"
+      PNRNumber:
+        type: "integer" 
+      BookingExpirationDate:
+        type: "string"
+        format: "date-time"
+      Carrier:
+        type: "string"
+      FlightNo:
+        type: "string"
+      OriginAirport:
+        type: "string"
+      DepartureTime:
+        type: "string"
+        format: "date-time"
+      DestinationAirport:
+        type: "string"
+      ArrivalTime:
+        type: "string"
+        format: "date-time"  
+      FlightTime:
+        type: "string"
+      IsReturnFlightIncluded:
+        type: "boolean"
+      OriginTerminal:
+        type: "string"
+      DestinationTerminal:
+        type: "string"
+      CarrierReturn: #Notice - on list those *Return fields were named as *_R
+        type: "string"
+      FlightNoReturn:
+        type: "string"
+      OriginAirportReturn:
+        type: "string"
+      DepartureTimeReturn:
+        type: "string"
+        format: "date-time"
+      DestinationAirportReturn:
+        type: "string"
+      ArrivalTimeReturn:
+        type: "string"
+        format: "date-time"  
+      FlightTimeReturn:
+        type: "string"
+      OriginTerminalReturn:
+        type: "string"
+      DestinationTerminalReturn:
+        type: "string" 
+      TicketingDueDateTime:
+        type: "string"
+        format: "date-time" 
+      FlashReportingDueTime:
+        type: "string"
+        format: "date-time" 
+      FinalReportingDueTime:
+        type: "string"
+        format: "date-time" 
+      FlightId:
+        type: "string"
+      PlaceOfDeparture: # Lookup - OriginLocation
+        $ref: "#/definitions/OriginLocation"
+      PlaceOfDestination: # Lookup - DestinationLocation
+        $ref: "#/definitions/DestinationLocation"
+      OfferSelected:
+        type: "boolean"
+      OfferCreated:
+        type: "boolean"
+      OfferValidToDate:
+        type: "string"
+        format: "date-time"
+      OfferRequested:
+        type: "boolean"  
+      BookingRequested:
+        type: "boolean"
+      ProcessManagerLog:
+        type: "string"
+      AudytLog:
+        type: "string"
+        format: "date-time"
+      #cmd_OfferSelection #Notice: Command used on form
+      ReturneesRef:
+        type: "string"
+      PlaceOfReturnToEU:  # Lookup - Origin Locations
+        $ref: "#/definitions/OriginLocation"
+      State:
+        type: "string"
+      CancellationRequested:
+        type: "boolean"
+      CancellationConfirmed:
+        type: "boolean"
+      SSRRejected:
+        type: "boolean"
+      SSRRejectedTime:
+        type: "string"
+        format: "date-time"
+      CancellationRejected:
+        type: "boolean"
+      TicketsRejected:
+        type: "boolean"
+      RetryCounter:
+        type: "integer"
+      ApprovalRequired:
+        type: "boolean"
+      ApprovedByFrontex:
+        type: "boolean"
+      RejectedByFrontex:
+        type: "boolean"
+      PassengersUpdateSent:
+        type: "boolean"
+      #cmd_RequestApproval #Notice: Command used on form
+      AutoAssesmentStatus:
+        type: "string"
+      AutoAssesmentMessage:
+        type: "string"
+      #EditA: # calculated value - some connected EditForm for approval
+      DueTime:
+        type: "string"
+        format: "date-time"
+      ActionRequired:
+        type: "string"
+      CountryCode:
+        type: "string"
+      Processing:
+        type: "string"
+      IsTicketsSend:
+        type: "boolean"
+      TransferAutorizationObrained:
+        type: "boolean"
+      ConnectingFlightBooked:
+        type: "boolean"
+      SSRResult: #calculated value - red/green in terms of SSRConfirmed
+       type: "string"
+      FrontexApprovalResult: #calculated value - green in terms of IF([Passengers confirmed]*[SSR confirmed],IF([Approved by Frontex],
+        type: "string"
+      IsTicketsUpdated:
+        type: "boolean"
+      IHerebyConfirm:
+        type: "boolean"
+      LastMinuteAsylum:
+        type: "integer"
+      MedicalReasons:
+        type: "integer"
+      LackOfDocuments:
+        type: "integer"
+      CourtDecision:
+        type: "integer"
+      ViolentBehaviour:
+        type: "integer"
+      UnacceptedByPilotInCommand:
+        type: "integer"
+      UnacceptedByLocalAuthorities:
+        type: "integer"
+      FlightDelayCancellation:
+        type: "integer"
+      Other:
+        type: "integer"
+      ReturnOperationId:
+        type: "integer"
+        format: "int64"
+      MasterReturnOperation:
+        type: "string"
+      FirstName:
+        type: "string"
+      LastName:
+        type: "string"
+      Gender: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "Male"
+        #- "Femaile"
+      Email:
+        type: "string"
+      Phone:
+        type: "string"
+      Notes:
+        type: "string"
+      Anonymized:
+        type: "boolean"
+      AnonymizedTickets:
+        type: "boolean"
+      PassengerRole: # @Dictionary
+        $ref: "#/definitions/DictionaryValue"
+        #type: "string"
+        #enum:
+        #- "Escort"
+        #- "Medical Staff"
+        #- "Monitor"
+        #- "Interpreter"
+      MSSACConfirms:
+        type: "boolean"
+      CreatedBy:
+        type: "string"
+      ModifiedBy:
+        type: "string"
+  Setup: 
+    type: "object"
+    properties:
+      Id:
+        type: "integer"
+        format: "int64"
+      Created:
+        type: "string"
+        format: "date-time"
+      Modified:
+        type: "string"
+        format: "date-time"
+      Code: 
+        type: "string"
+      LastExecutionTime:
+        type: "string"
+        format: "date-time"
+      BooleanValue:
+        type: "boolean"
+      NumericValue:
+        type: "integer"
+      TextValue:
+        type: "string"
+  Dictionary: # MC proposed approach to dictionary values with dictionary table, and dictionaryvalue table
+    type: "object"
+    properties: 
+      Id:
+        type: "integer"
+        format: "int64"
+      Name:
+        type: "string"
+      Description:
+        type: "string"
+  DictionaryValue: 
+    type: "object"
+    properties: 
+      Id:
+        type: "integer"
+        format: "int64"
+      Name:
+        type: "string"
+      Code:
+        type: "string"
+      DictionaryId:
+        type: "integer"
+        format: "int64"
