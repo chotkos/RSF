@@ -1,0 +1,914 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is project of samle server for RSF V2. You can easily convert this file to json on editor.swagger.io and then import it into Azure API Management Service .",
+    "version": "1.0.0",
+    "title": "RSF API",
+    "termsOfService": "https://frontex.europa.eu/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "petstore.swagger.io",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "example-tag",
+      "description": "Description of example tag",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/notimplemented": {
+      "get": {
+        "tags": [
+          "tech"
+        ],
+        "responses": {
+          "501": {
+            "description": "Not implemented"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Airline": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "AirlineLogo": {
+          "type": "string"
+        },
+        "Active": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Airport": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Active": {
+          "type": "boolean"
+        },
+        "City": {
+          "$ref": "#/definitions/City"
+        },
+        "Country": {
+          "$ref": "#/definitions/Country"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "IsValidDestination": {
+          "type": "boolean"
+        },
+        "IsValidOrigin": {
+          "type": "boolean"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "City": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Country": {
+          "$ref": "#/definitions/Country"
+        },
+        "Active": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Country": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Active": {
+          "type": "boolean"
+        }
+      }
+    },
+    "DestinationLocation": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "LocationType": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "Active": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Message": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ReturnOperation": {
+          "$ref": "#/definitions/ReturnOperation"
+        },
+        "MessageType": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "Subject": {
+          "type": "string"
+        },
+        "MessageContent": {
+          "type": "string"
+        },
+        "Country": {
+          "$ref": "#/definitions/Country"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "CreatedBy": {
+          "type": "string"
+        },
+        "MasterRecordOperation": {
+          "$ref": "#/definitions/ReturnOperation"
+        }
+      }
+    },
+    "OffersLeg": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ArrivalTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "AvailableSeats": {
+          "type": "integer"
+        },
+        "Carrier": {
+          "type": "string"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "DepartureTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "DestinationAirport": {
+          "$ref": "#/definitions/Airport"
+        },
+        "DestinationTerminal": {
+          "type": "string"
+        },
+        "FlightNo": {
+          "type": "string"
+        },
+        "FlightTime": {
+          "type": "string"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Offer": {
+          "$ref": "#/definitions/Offer"
+        },
+        "OriginAirport": {
+          "$ref": "#/definitions/Airport"
+        },
+        "OriginTerminal": {
+          "type": "string"
+        },
+        "ReturnOperationID": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "SequenceNumber": {
+          "type": "integer"
+        },
+        "WaitingTimeInMinutes": {
+          "type": "integer"
+        }
+      }
+    },
+    "Offer": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ArrivalTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "DepartureTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "DestinationAirport": {
+          "$ref": "#/definitions/Airport"
+        },
+        "FlightDetails": {
+          "type": "string"
+        },
+        "FlightTime": {
+          "type": "string"
+        },
+        "FlightId": {
+          "type": "string"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "OperationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "OriginAirport": {
+          "$ref": "#/definitions/Airport"
+        },
+        "ReturnOperationID": {
+          "$ref": "#/definitions/ReturnOperation"
+        },
+        "WaitingTimeInMinutes": {
+          "type": "integer"
+        },
+        "CreatedBy": {
+          "type": "string"
+        },
+        "ModifiedBy": {
+          "type": "string"
+        }
+      }
+    },
+    "OriginLocation": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Active": {
+          "type": "boolean"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "LocationType": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "Passenger": {
+      "type": "object",
+      "properties": {
+        "AgeGroup": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "Comments": {
+          "type": "string"
+        },
+        "Confirmed": {
+          "type": "boolean"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Currency": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "GDSNumber": {
+          "type": "string"
+        },
+        "Gender": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "GrossValue": {
+          "type": "number"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Nationality": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "PassengerType": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "Phone": {
+          "type": "string"
+        },
+        "PNRNumber": {
+          "type": "string"
+        },
+        "RemovalInformations": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "RequestForSpecialNeeds": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "ResultAssesmentIfNotRemoved": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "ReturnOperation": {
+          "$ref": "#/definitions/ReturnOperation"
+        },
+        "Signature": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "TicketNumber": {
+          "type": "string"
+        },
+        "TravelDocument": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "CreatedBy": {
+          "type": "string"
+        },
+        "ModifiedBy": {
+          "type": "string"
+        }
+      }
+    },
+    "Recipient": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Active": {
+          "type": "boolean"
+        },
+        "BCC": {
+          "type": "string"
+        },
+        "CC": {
+          "type": "string"
+        },
+        "Country": {
+          "$ref": "#/definitions/Country"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "GroupName": {
+          "type": "string"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "POC": {
+          "type": "string"
+        },
+        "SPCountryCode": {
+          "type": "string"
+        },
+        "To": {
+          "type": "string"
+        },
+        "CreatedBy": {
+          "type": "string"
+        },
+        "ModifiedBy": {
+          "type": "string"
+        }
+      }
+    },
+    "ReturnOperationHistory": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ReturnOperationId": {
+          "$ref": "#/definitions/ReturnOperation"
+        },
+        "Action": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        },
+        "RelativeTimeSpan": {
+          "type": "string"
+        }
+      }
+    },
+    "ReturnOperation": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "OperationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "NumberOfEscorts": {
+          "type": "integer"
+        },
+        "NumberOfMonitors": {
+          "type": "integer"
+        },
+        "AllowFlexibleDate": {
+          "type": "boolean"
+        },
+        "NumberOfDEPA": {
+          "type": "integer"
+        },
+        "NumberOfDEPU": {
+          "type": "integer"
+        },
+        "NumberOfReturnees": {
+          "type": "integer"
+        },
+        "NumberOfStaff": {
+          "type": "integer"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "ServiceProviderStatus": {
+          "type": "string"
+        },
+        "FlightDetails": {
+          "type": "string"
+        },
+        "RequestType": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "RequestForSpecialNeeds": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "Remarks": {
+          "type": "string"
+        },
+        "ReturnFlightAfter123": {
+          "type": "integer"
+        },
+        "SystemNotification": {
+          "type": "string"
+        },
+        "ValidDestinationCountry": {
+          "$ref": "#/definitions/Country"
+        },
+        "BookingSummary": {
+          "type": "string"
+        },
+        "Stage": {
+          "type": "string"
+        },
+        "Country": {
+          "$ref": "#/definitions/Country"
+        },
+        "NumberOfMedicalStaff": {
+          "type": "integer"
+        },
+        "NumberOfInterpreters": {
+          "type": "integer"
+        },
+        "BookingConfirmed": {
+          "type": "boolean"
+        },
+        "SSRConfirmed": {
+          "type": "boolean"
+        },
+        "PassengersConfirmed": {
+          "type": "boolean"
+        },
+        "TicketsIssued": {
+          "type": "boolean"
+        },
+        "MissingFlashReport": {
+          "type": "boolean"
+        },
+        "MissingFinalReport": {
+          "type": "boolean"
+        },
+        "PassengersListSummary": {
+          "type": "string"
+        },
+        "OperationResult": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "RecordedIncidents": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "ResultAssesmentIfNotRemoved": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "ResultAssesmentAnybodyInjured": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "Comments": {
+          "type": "string"
+        },
+        "Signature": {
+          "type": "string"
+        },
+        "SIRCreated": {
+          "type": "boolean"
+        },
+        "NumberOfReturnedDeportees": {
+          "type": "integer"
+        },
+        "RemovalInformations": {
+          "$ref": "#/definitions/DictionaryValue"
+        },
+        "FlashreportRequested": {
+          "type": "boolean"
+        },
+        "FinalReportRequested": {
+          "type": "boolean"
+        },
+        "TicketsRequested": {
+          "type": "boolean"
+        },
+        "IsFlightDetailsAvailable": {
+          "type": "boolean"
+        },
+        "AwaitingTickets": {
+          "type": "boolean"
+        },
+        "DataValidated": {
+          "type": "boolean"
+        },
+        "IsPassengersCreated": {
+          "type": "boolean"
+        },
+        "PNRNumber": {
+          "type": "integer"
+        },
+        "BookingExpirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "TicketingDueDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "FlashReportingDueTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "FinalReportingDueTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "FlightId": {
+          "type": "string"
+        },
+        "PlaceOfDeparture": {
+          "$ref": "#/definitions/OriginLocation"
+        },
+        "PlaceOfDestination": {
+          "$ref": "#/definitions/DestinationLocation"
+        },
+        "OfferSelected": {
+          "type": "boolean"
+        },
+        "OfferCreated": {
+          "type": "boolean"
+        },
+        "OfferValidToDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "OfferRequested": {
+          "type": "boolean"
+        },
+        "BookingRequested": {
+          "type": "boolean"
+        },
+        "ProcessManagerLog": {
+          "type": "string"
+        },
+        "AudytLog": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ReturneesRef": {
+          "type": "string"
+        },
+        "PlaceOfReturnToEU": {
+          "$ref": "#/definitions/OriginLocation"
+        },
+        "State": {
+          "type": "string"
+        },
+        "CancellationRequested": {
+          "type": "boolean"
+        },
+        "CancellationConfirmed": {
+          "type": "boolean"
+        },
+        "SSRRejected": {
+          "type": "boolean"
+        },
+        "SSRRejectedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "CancellationRejected": {
+          "type": "boolean"
+        },
+        "TicketsRejected": {
+          "type": "boolean"
+        },
+        "RetryCounter": {
+          "type": "integer"
+        },
+        "ApprovalRequired": {
+          "type": "boolean"
+        },
+        "ApprovedByFrontex": {
+          "type": "boolean"
+        },
+        "RejectedByFrontex": {
+          "type": "boolean"
+        },
+        "PassengersUpdateSent": {
+          "type": "boolean"
+        },
+        "AutoAssesmentStatus": {
+          "type": "string"
+        },
+        "AutoAssesmentMessage": {
+          "type": "string"
+        },
+        "DueTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ActionRequired": {
+          "type": "string"
+        },
+        "Processing": {
+          "type": "string"
+        },
+        "IsTicketsSend": {
+          "type": "boolean"
+        },
+        "TransferAutorizationObrained": {
+          "type": "boolean"
+        },
+        "ConnectingFlightBooked": {
+          "type": "boolean"
+        },
+        "SSRResult": {
+          "type": "string"
+        },
+        "FrontexApprovalResult": {
+          "type": "string"
+        },
+        "IsTicketsUpdated": {
+          "type": "boolean"
+        },
+        "IHerebyConfirm": {
+          "type": "boolean"
+        },
+        "LastMinuteAsylum": {
+          "type": "integer"
+        },
+        "MedicalReasons": {
+          "type": "integer"
+        },
+        "LackOfDocuments": {
+          "type": "integer"
+        },
+        "CourtDecision": {
+          "type": "integer"
+        },
+        "ViolentBehaviour": {
+          "type": "integer"
+        },
+        "UnacceptedByPilotInCommand": {
+          "type": "integer"
+        },
+        "UnacceptedByLocalAuthorities": {
+          "type": "integer"
+        },
+        "FlightDelayCancellation": {
+          "type": "integer"
+        },
+        "Other": {
+          "type": "integer"
+        },
+        "MasterReturnOperation": {
+          "$ref": "#/definitions/ReturnOperation"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "Anonymized": {
+          "type": "boolean"
+        },
+        "AnonymizedTickets": {
+          "type": "boolean"
+        },
+        "MSSACConfirms": {
+          "type": "boolean"
+        },
+        "CreatedBy": {
+          "type": "string"
+        },
+        "ModifiedBy": {
+          "type": "string"
+        }
+      }
+    },
+    "Setup": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "LastExecutionTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "BooleanValue": {
+          "type": "boolean"
+        },
+        "NumericValue": {
+          "type": "integer"
+        },
+        "TextValue": {
+          "type": "string"
+        }
+      }
+    },
+    "Dictionary": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        }
+      }
+    },
+    "DictionaryValue": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "DictionaryId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}
