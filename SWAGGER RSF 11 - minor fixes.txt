@@ -569,8 +569,9 @@ definitions:
         type: "string"
       Stage:
         type: "string"
-      Country: 
-        type: "string" #Notice: this might be lookup or same as validdestinationcountry
+      Country: # @Refactor: added lookup
+        # type: "string" # @Notice: this might be lookup or same as validdestinationcountry
+        $ref: "#/definitions/Country"
       NumberOfMedicalStaff:
         type: "integer"
       NumberOfInterpreters:
@@ -587,7 +588,7 @@ definitions:
         type: "boolean"
       MissingFinalReport:
         type: "boolean" 
-      #cmdPassengerList - #Notice: this cmd properties were required for form usage
+      #cmdPassengerList - #@Notice: this cmd properties were required for form usage
       #cmdQueuedTickets - #        now they are probably useless
       #cmdIssuedTickets
       #cmdFlashReport
@@ -689,7 +690,7 @@ definitions:
         type: "string"
       DestinationTerminal:
         type: "string"
-      CarrierReturn: #Notice - on list those *Return fields were named as *_R
+      CarrierReturn: #@Notice - on list those *Return fields were named as *_R
         type: "string"
       FlightNoReturn:
         type: "string"
@@ -781,8 +782,8 @@ definitions:
         format: "date-time"
       ActionRequired:
         type: "string"
-      CountryCode:
-        type: "string"
+      #CountryCode: @Refactor: is cointained in country.
+      #  type: "string"
       Processing:
         type: "string"
       IsTicketsSend:
