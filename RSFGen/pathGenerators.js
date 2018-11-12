@@ -34,7 +34,7 @@ function getGetByIdObject(entityName) {
             },
             "basePath": "/v2",
             "tags": [{
-                "name": entityName,                
+                "name": entityName                
             }]
     };
 }
@@ -71,7 +71,7 @@ function getRemoveObject(entityName) {
                 }
             },
             "tags": [{
-                "name": entityName,                
+                "name": entityName                
             }]
         }
     }
@@ -106,7 +106,7 @@ function getCreateObject(entityName) {
                 }
             },
             "tags": [{
-                "name": entityName,                
+                "name": entityName                
             }]
         }
     };
@@ -143,7 +143,7 @@ function getUpdateObject(entityName) {
                 }
             },
             "tags": [{
-                "name": entityName,                
+                "name": entityName                
             }]
         }
     };
@@ -172,7 +172,7 @@ function getSearchObject(entityName) {
                 }
             },
             "tags": [{
-                "name": entityName,                
+                "name": entityName                
             }]
         }
     };
