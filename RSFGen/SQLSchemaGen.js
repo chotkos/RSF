@@ -1,8 +1,9 @@
 
 var getType = function(column,columnName){
+    columnName = "["+columnName+"]";
     switch(column.type){
         case "integer":
-            if(columnName == "Id"){
+            if(columnName == "[Id]"){
                 return  columnName+" INT PRIMARY KEY"
             } else{
                 return  columnName+" INT";
@@ -23,7 +24,7 @@ var getType = function(column,columnName){
             break;
         default: 
             var refTable = column["$ref"].split('definitions/')[1];
-            return columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
+            return columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"(Id)";
             break
     }
 };
