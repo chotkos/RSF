@@ -19,8 +19,13 @@ var getType = function(column,columnName){
             return " BIT"
             break;  
         default: 
-            var refTable = column["$ref"].split('definitions/')[0];
-            return "Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
+            if(column["$ref"]){
+                var refTable = column["$ref"].split('definitions/')[1];
+                return "Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
+            } else{
+                console.log(column,columnName);
+                debugger;
+            }
             break
     }
 };
