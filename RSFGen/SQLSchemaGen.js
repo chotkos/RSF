@@ -34,7 +34,7 @@ var getType = function(column,columnName,entityName){
 var generateSQLTables = function(definitions){
     var dbName = $('#db-name').val();
     var result = "IF EXISTS(select * from sys.databases where name='"+dbName+"')" + 
-	"DROP DATABASE "+dbName+"; \n CREATE DATABASE "+dbName+"; \nUSE "+$('#db-name').val()+"; \nGO \n";
+	"DROP DATABASE "+dbName+"; \nCREATE DATABASE "+dbName+"; \nUSE "+$('#db-name').val()+"; \nGO \n";
     alters = "";
     Object.keys(definitions)
         .forEach(entityName => {
