@@ -22,41 +22,35 @@
             <h3 class='text-muted'>RSF2 API Generator<h3>
         </div>
         <div class="row equal">
-            <!--<div class="col-md-4">-->
-                <div class='panel panel-default'>            
-                    <div class="panel-heading">Properties</div>     
-                    <div class="panel-body">
-                        <div class="form-group">
-                          <label for="usr">Swagger JSON file URL:</label>
-                          <input type="text" class="form-control" id="dataFileUrl" value="data.json">
-                        </div>
-                    </div>            
-                    <div class="panel-footer">
-                        <div class="btn btn-success btn-sm pull-right" id="run">Run generator</div>
+            <div class='panel panel-default'>            
+                <div class="panel-heading">Properties</div>     
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="usr">Swagger JSON file URL:</label>
+                        <input type="text" class="form-control" id="dataFileUrl" value="data.json">
                     </div>
-                <!--</div>    -->
-            </div>            
-            <!--<div class="col-md-4">-->
-                <div class='panel panel-default'>            
-                    <div class="panel-heading">Here you will find you paths object</div>     
-                    <div class="panel-body">
-                        <textarea id="path-result"></textarea>
-                    </div>            
-                    <div class="panel-footer">Click textarea to copy</div>
+                </div>            
+                <div class="panel-footer">
+                    <div class="btn btn-success btn-sm pull-right" id="run">Run generator</div>
                 </div>
-            <!--</div>            
-            <!--<div class="col-md-4">-->
-                <div class='panel panel-default'>
-                    <div class="panel-heading">OpenApi JSON definition for Azure Managed API</div>            
-                    <div class="panel-body">
-                        <textarea id="json-result"></textarea>                   
-                    </div>        
-                    <div class="panel-footer">
-                        Click textarea to copy
-                        <div class="btn btn-success btn-sm pull-right" id="download">Download JSON file</div>
-                    </div>
-                </div>    
-            <!--</div>-->
+            </div>            
+            <div class='panel panel-default'>            
+                <div class="panel-heading">Here you will find you paths object</div>     
+                <div class="panel-body">
+                    <textarea id="path-result"></textarea>
+                </div>            
+                <div class="panel-footer">Click textarea to copy</div>
+            </div>
+            <div class='panel panel-default'>
+                <div class="panel-heading">OpenApi JSON definition for Azure Managed API</div>            
+                <div class="panel-body">
+                    <textarea id="json-result"></textarea>                   
+                </div>        
+                <div class="panel-footer">
+                    Click textarea to copy
+                    <div class="btn btn-success btn-sm pull-right" id="download">Download JSON file</div>
+                </div>
+            </div>    
         </div>
         <script src="jquery.min.js" type="text/javascript"></script>
         <script src="pathGenerators.js" type="text/javascript"></script>
