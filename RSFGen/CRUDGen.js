@@ -10,18 +10,18 @@ document.onreadystatechange = () => {
                 .forEach(e => {
                     console.log(`key=${e}  value=${json.definitions[e]}`);
 
-                    paths["/" + e + "/{id}"] = getGetByIdObject(e);
-                    paths["/" + e + "/create"] = getCreateObject(e);
-                    paths["/" + e + "/update"] = getUpdateObject(e);
-                    paths["/" + e + "/delete/{id}" ] = getRemoveObject(e);
-                    paths["/" + e + "/search"] = getSearchObject(e);
+                    json.paths["/" + e + "/{id}"] = getGetByIdObject(e);
+                    json.paths["/" + e + "/create"] = getCreateObject(e);
+                    json.paths["/" + e + "/update"] = getUpdateObject(e);
+                    json.paths["/" + e + "/delete/{id}" ] = getRemoveObject(e);
+                    json.paths["/" + e + "/search"] = getSearchObject(e);
 
                 });
 
-            $('#path-result').val(JSON.stringify(paths));
-            json.paths = paths;
+            $('#path-result').val(JSON.stringify(json.paths));
+            //json.paths = paths;
             $('#json-result').val(JSON.stringify(json));
-            console.log("Your new paths", paths);
+            console.log("Your new paths", json.paths);
             console.log("Your new JSON", json);
 
 
