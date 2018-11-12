@@ -1,5 +1,4 @@
-
-var getSQLForDefinition(definition) = function {
+var getSQLForDefinition= function(definition)  {
     
 };
 
