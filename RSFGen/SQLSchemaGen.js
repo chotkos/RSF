@@ -32,7 +32,9 @@ var getType = function(column,columnName,entityName){
 };
 
 var generateSQLTables = function(definitions){
-    var result = "";
+    var dbName = $('#db-name').val();
+    var result = "IF EXISTS(select * from sys.databases where name='"+dbName+"')" + 
+	"DROP DATABASE "+dbName+"; \n CREATE DATABASE "+dbName+"; \n";
     alters = "";
     Object.keys(definitions)
         .forEach(entityName => {
