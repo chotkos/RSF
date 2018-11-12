@@ -18,8 +18,7 @@ var getType = function(column,columnName){
         case "boolean":
             return " BIT"
             break;  
-        default:
-            debugger;
+        default: 
             var refTable = column["$ref"].split('definitions/')[0];
             return "Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
             break
@@ -35,10 +34,12 @@ var generateSQLTables = function(definitions){
             var columns = definitions[entityName].properties;
             Object.keys(columns)
                 .forEach(columnName => {
-                    var col =  columns[columnName]
-                    console.log(col);
-                    var type = getType(col,columnName); 
-                    tableResult+= "ALTER TABLE "+ entityName + " ADD " + columnName + type +"; ";
+                    if(columnName!= "type"){
+                        var col =  columns[columnName]
+                        console.log(col);
+                        var type = getType(col,columnName); 
+                        tableResult+= "ALTER TABLE "+ entityName + " ADD " + columnName + type +"; ";
+                    }
                 });
             
             result+= tableResult
