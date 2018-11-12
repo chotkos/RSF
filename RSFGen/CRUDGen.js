@@ -44,6 +44,10 @@ document.onreadystatechange = () => {
           e.currentTarget.select();
           document.execCommand('copy');
       });
+	    
+      $("sql-create").click(e=>{
+          generateSQLTables(document.data.definitions);
+      });
 
       $("#download").click(e => {
           var filename = "withPaths.json";
