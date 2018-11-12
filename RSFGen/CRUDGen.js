@@ -11,10 +11,10 @@ document.onreadystatechange = () => {
                     console.log(`key=${e}  value=${json.definitions[e]}`);
 
                     paths["/" + e + "/{id}"] = getGetByIdObject(e);
-                    paths["/" + e ] = getCreateObject(e);
-                    paths["/" + e ] = getUpdateObject(e);
-                    paths["/" + e ] = getRemoveObject(e);
-                    paths["/" + e ] = getSearchObject(e);
+                    paths["/" + e + "/create"] = getCreateObject(e);
+                    paths["/" + e + "/update"] = getUpdateObject(e);
+                    paths["/" + e + "/delete/{id}" ] = getRemoveObject(e);
+                    paths["/" + e + "/search"] = getSearchObject(e);
 
                 });
 
