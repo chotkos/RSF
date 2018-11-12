@@ -20,7 +20,8 @@ var runGenerator = function(fileUrl){
             $('#json-result').val(JSON.stringify(json));
             console.log("Your new paths", json.paths);
             console.log("Your new JSON", json);
-
+		document.data = json;
+	
 
         });
 
