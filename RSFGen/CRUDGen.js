@@ -1,8 +1,5 @@
-
-document.onreadystatechange = () => {
-    if (document.readyState === 'complete') {
-        // document ready
-        $.getJSON("data.json", function (json) {
+var runGenerator = function(fileUrl){
+	$.getJSON("data.json", function (json) {
             console.log("JSON Data received ", json);
             let paths = {};
 
@@ -26,37 +23,52 @@ document.onreadystatechange = () => {
 
 
         });
+
+};
+
+
+
+
+document.onreadystatechange = () => {
+
+    if (document.readyState === 'complete') {
+        // document ready        
+
+      $("#path-result").click(e => {
+          e.currentTarget.select();
+          document.execCommand('copy');
+      });
+
+      $("#json-result").click(e => {
+          e.currentTarget.select();
+          document.execCommand('copy');
+      });
+
+      $("#download").click(e => {
+          var filename = "withPaths.json";
+          var type = "text/plain";
+          var data = $("#json-result").val();
+          var file = new Blob([data], {type: type});
+          if (window.navigator.msSaveOrOpenBlob) // IE10+
+              window.navigator.msSaveOrOpenBlob(file, filename);
+          else { // Others
+              var a = document.createElement("a"),
+                  url = URL.createObjectURL(file);
+              a.href = url;
+              a.download = filename;
+              document.body.appendChild(a);
+              a.click();
+              setTimeout(function() {
+                  document.body.removeChild(a);
+                  window.URL.revokeObjectURL(url);
+              }, 0);
+          }
+      });    
+      
+      $("#run").click(e => {
+      	runGenerator($("#dataFileUrl").val());
+      });
+    
     }
-
-    $("#path-result").click(e => {
-        e.currentTarget.select();
-        document.execCommand('copy');
-    });
-
-    $("#json-result").click(e => {
-        e.currentTarget.select();
-        document.execCommand('copy');
-    });
-
-    $("#download").click(e => {
-        var filename = "withPaths.json";
-        var type = "text/plain";
-        var data = $("#json-result").val();
-        var file = new Blob([data], {type: type});
-        if (window.navigator.msSaveOrOpenBlob) // IE10+
-            window.navigator.msSaveOrOpenBlob(file, filename);
-        else { // Others
-            var a = document.createElement("a"),
-                url = URL.createObjectURL(file);
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            setTimeout(function() {
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(url);
-            }, 0);
-        }
-    });
 
 };
