@@ -51,7 +51,7 @@ document.onreadystatechange = () => {
           document.execCommand('copy');
       });
 	    
-      $("sql-create").click(e=>{
+      $("#sql-create").click(e=>{
           generateSQLTables(document.data.definitions);
       });
 
