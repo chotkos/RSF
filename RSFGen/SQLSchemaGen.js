@@ -19,6 +19,7 @@ var getType = function(column,columnName){
             return " BIT"
             break;  
         default:
+            debugger;
             var refTable = column["$ref"].split('definitions/')[0];
             return "Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
             break
