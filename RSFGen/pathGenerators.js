@@ -31,10 +31,9 @@ function getGetByIdObject(entityName) {
                 "500":{
                     "description": "Internal server error"
                 }
-            },
-            "host": "petstore.swagger.io",
+            }, 
+            "tags": [entityName],
             "basePath": "/v2",
-            "tags": [entityName]
         }
     };
 }
