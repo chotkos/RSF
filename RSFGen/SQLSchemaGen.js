@@ -18,14 +18,12 @@ var getType = function(column,columnName){
         case "boolean":
             return " BIT"
             break;  
+        case "number":
+            return " DECIMAL(18,2)";
+            break;
         default: 
-            if(column["$ref"]){
-                var refTable = column["$ref"].split('definitions/')[1];
-                return "Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
-            } else{
-                console.log(column,columnName);
-                debugger;
-            }
+            var refTable = column["$ref"].split('definitions/')[1];
+            return "Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
             break
     }
 };
