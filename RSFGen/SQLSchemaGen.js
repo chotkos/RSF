@@ -7,7 +7,7 @@ var generateSQLTables = function(definitions){
     Object.keys(definitions)
         .forEach(entityName => {
             var tableResult = "CREATE TABLE " + entityName + "; ";
-            var columns = definitions[entityName];
+            var columns = definitions[entityName].properties;
             Object.keys(columns)
                 .forEach(columnName => {
                     var col =  columns[columnName]
