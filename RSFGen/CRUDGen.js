@@ -38,7 +38,13 @@ document.onreadystatechange = () => {
       $("#path-result").click(e => {
           e.currentTarget.select();
           document.execCommand('copy');
+      });  
+
+      $("#sql-result").click(e => {
+          e.currentTarget.select();
+          document.execCommand('copy');
       });
+
 
       $("#json-result").click(e => {
           e.currentTarget.select();
