@@ -32,10 +32,7 @@ function getGetByIdObject(entityName) {
                     "description": "Internal server error"
                 }
             },
-            "basePath": "/v2",
-            "tags": [{
-                "name": entityName                
-            }]
+            "basePath": "/v2"
     };
 }
 
@@ -69,13 +66,9 @@ function getRemoveObject(entityName) {
                 "500": {
                     "description": "Internal server error"
                 }
-            },
-            "tags": [{
-                "name": entityName                
-            }]
+            }
         }
-    }
-        ;
+    };
 }
 
 function getCreateObject(entityName) {
@@ -104,10 +97,7 @@ function getCreateObject(entityName) {
                 "500": {
                     "description": "Internal server error"
                 }
-            },
-            "tags": [{
-                "name": entityName                
-            }]
+            }
         }
     };
 }
@@ -141,10 +131,7 @@ function getUpdateObject(entityName) {
                 "500": {
                     "description": "Internal server error"
                 }
-            },
-            "tags": [{
-                "name": entityName                
-            }]
+            }
         }
     };
 }
