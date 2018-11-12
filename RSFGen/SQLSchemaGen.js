@@ -35,13 +35,17 @@ var generateSQLTables = function(definitions){
         .forEach(entityName => {
             var tableResult = "CREATE TABLE " + entityName + " ( \n";
             var columns = definitions[entityName].properties;
+            var keysCounter = Object.keys(columns).length;
+            var k=0;
             Object.keys(columns)
                 .forEach(columnName => {
+                    k++;
                     if(columnName!= "type"){
                         var col =  columns[columnName]
                         console.log(col);
-                        var type = getType(col,columnName); 
-                        tableResult+= type +", \n";
+                        var type = getType(col,columnName);
+                        var comma = k<keysCounter? ',':'';
+                        tableResult+= type +comma + " \n";
                     }
                 });
             
