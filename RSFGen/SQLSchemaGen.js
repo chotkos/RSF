@@ -25,7 +25,7 @@ var getType = function(column,columnName,entityName){
             return  columnName+" DECIMAL(18,2)"; 
         default: 
             var refTable = column['$ref'].split('definitions/')[1];
-            alters+="ALTER TABLE "+entityName+" ADD ["+originalCn+"Id] INT FOREIGN KEY REFERENCES "+refTable+"(Id); \nUSE "+$('#db-name').val()+"; GO \n";
+            alters+="ALTER TABLE "+entityName+" ADD ["+originalCn+"Id] INT FOREIGN KEY REFERENCES "+refTable+"(Id); \n";
 
             return null;//columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"(Id)"; 
     }
@@ -34,7 +34,7 @@ var getType = function(column,columnName,entityName){
 var generateSQLTables = function(definitions){
     var dbName = $('#db-name').val();
     var result = "IF EXISTS(select * from sys.databases where name='"+dbName+"')" + 
-	"DROP DATABASE "+dbName+"; \n CREATE DATABASE "+dbName+"; \n";
+	"DROP DATABASE "+dbName+"; \n CREATE DATABASE "+dbName+"; \nUSE "+$('#db-name').val()+"; GO \n";
     alters = "";
     Object.keys(definitions)
         .forEach(entityName => {
