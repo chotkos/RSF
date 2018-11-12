@@ -33,7 +33,7 @@ var generateSQLTables = function(definitions){
     var result = "";
     Object.keys(definitions)
         .forEach(entityName => {
-            var tableResult = "CREATE TABLE " + entityName + " ( ";
+            var tableResult = "CREATE TABLE " + entityName + " ( \n";
             var columns = definitions[entityName].properties;
             Object.keys(columns)
                 .forEach(columnName => {
@@ -45,7 +45,7 @@ var generateSQLTables = function(definitions){
                     }
                 });
             
-            result+= tableResult + ");";
+            result+= tableResult + ");\n";
         });
     console.log(result);
     $('#sql-result').val(result);
