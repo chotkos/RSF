@@ -41,7 +41,7 @@ var generateSQLTables = function(definitions){
                         var col =  columns[columnName]
                         console.log(col);
                         var type = getType(col,columnName); 
-                        tableResult+= "ALTER TABLE "+ entityName +  columnName + type +"; ";
+                        tableResult+= "ALTER TABLE "+ entityName + type +"; ";
                     }
                 });
             
