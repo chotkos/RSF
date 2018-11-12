@@ -3,9 +3,9 @@ var getType = function(column,columnName){
     switch(column.type){
         case "integer":
             if(columnName == "Id"){
-                return  columnName+" INT32 PRIMARY KEY"
+                return  columnName+" INT PRIMARY KEY"
             } else{
-                return  columnName+" INT32";
+                return  columnName+" INT";
             }
             break;
         case "string":
