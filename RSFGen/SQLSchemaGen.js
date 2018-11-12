@@ -3,27 +3,27 @@ var getType = function(column,columnName){
     switch(column.type){
         case "integer":
             if(columnName == "Id"){
-                return " ADD INT32 PRIMARY KEY"
+                return " ADD "+columnName+" INT32 PRIMARY KEY"
             } else{
-                return " ADD INT32";
+                return " ADD "+columnName+" INT32";
             }
             break;
         case "string":
             if(column.format === "date-time"){
-                return " ADD DATETIME";
+                return " ADD "+columnName+" DATETIME";
             } else {
-                return " ADD VARCHAR(100)";
+                return " ADD "+columnName+" VARCHAR(100)";
             }
             break;
         case "boolean":
-            return " ADD BIT"
+            return " ADD "+columnName+" BIT"
             break;  
         case "number":
-            return " ADD DECIMAL(18,2)";
+            return " ADD "+columnName+" DECIMAL(18,2)";
             break;
         default: 
             var refTable = column["$ref"].split('definitions/')[1];
-            return "Id ADD INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
+            return " ADD "+columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
             break
     }
 };
