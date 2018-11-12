@@ -6,3 +6,7 @@ textarea{
 .panel-footer{
     min-height: 55px;
 }
+.equal {  
+    display: -webkit-flex;
+    display: flex;
+}
