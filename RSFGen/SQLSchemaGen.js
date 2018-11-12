@@ -33,7 +33,7 @@ var generateSQLTables = function(definitions){
     var result = "";
     Object.keys(definitions)
         .forEach(entityName => {
-            var tableResult = "CREATE TABLE " + entityName + "; ";
+            var tableResult = "CREATE TABLE " + entityName + " ( ";
             var columns = definitions[entityName].properties;
             Object.keys(columns)
                 .forEach(columnName => {
@@ -41,11 +41,11 @@ var generateSQLTables = function(definitions){
                         var col =  columns[columnName]
                         console.log(col);
                         var type = getType(col,columnName); 
-                        tableResult+= "ALTER TABLE "+ entityName + type +"; ";
+                        tableResult+= "ALTER TABLE "+ entityName + type +", \n";
                     }
                 });
             
-            result+= tableResult
+            result+= tableResult + ");";
         });
     console.log(result);
     $('#sql-result').val(result);
