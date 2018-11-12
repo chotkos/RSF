@@ -3,27 +3,27 @@ var getType = function(column,columnName){
     switch(column.type){
         case "integer":
             if(columnName == "Id"){
-                return " ADD "+columnName+" INT32 PRIMARY KEY"
+                return  columnName+" INT32 PRIMARY KEY"
             } else{
-                return " ADD "+columnName+" INT32";
+                return  columnName+" INT32";
             }
             break;
         case "string":
             if(column.format === "date-time"){
-                return " ADD "+columnName+" DATETIME";
+                return  columnName+" DATETIME";
             } else {
-                return " ADD "+columnName+" VARCHAR(100)";
+                return  columnName+" VARCHAR(100)";
             }
             break;
         case "boolean":
-            return " ADD "+columnName+" BIT"
+            return  columnName+" BIT"
             break;  
         case "number":
-            return " ADD "+columnName+" DECIMAL(18,2)";
+            return  columnName+" DECIMAL(18,2)";
             break;
         default: 
             var refTable = column["$ref"].split('definitions/')[1];
-            return " ADD "+columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
+            return columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"refTable(Id)";
             break
     }
 };
@@ -41,7 +41,7 @@ var generateSQLTables = function(definitions){
                         var col =  columns[columnName]
                         console.log(col);
                         var type = getType(col,columnName); 
-                        tableResult+= "ALTER TABLE "+ entityName + type +", \n";
+                        tableResult+= type +", \n";
                     }
                 });
             
