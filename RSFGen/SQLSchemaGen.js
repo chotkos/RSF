@@ -7,12 +7,11 @@ var generateSQLTables = function(definitions){
     Object.keys(definitions)
         .forEach(entityName => {
             var tableResult = "CREATE TABLE " + entityName + "; ";
-            console.log(tableResult);
             var columns = definitions[entityName];
             Object.keys(columns)
                 .forEach(columnName => {
                     var col =  columns[columnName]
-                    console.log("Column:", col);
+                    console.log(col);
                 });
             
             
