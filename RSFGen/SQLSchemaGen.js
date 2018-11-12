@@ -48,4 +48,5 @@ var generateSQLTables = function(definitions){
             result+= tableResult
         });
     console.log(result);
+    $('#sql-result').val(result);
 };
