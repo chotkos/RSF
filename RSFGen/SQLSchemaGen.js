@@ -1,11 +1,13 @@
+var alters ="";
 
-var getType = function(column,columnName){
+
+var getType = function(column,columnName,entityName){
     columnName = "["+columnName+"]";
     switch(column.type){
         case "integer":
             if(columnName == "[Id]"){
                 return  columnName+" INT PRIMARY KEY"
-            } else{
+            } else {
                 return  columnName+" INT";
             }
             break;
@@ -18,20 +20,19 @@ var getType = function(column,columnName){
             break;
         case "boolean":
             return  columnName+" BIT"
-            break;  
         case "number":
-            return  columnName+" DECIMAL(18,2)";
-            break;
+            return  columnName+" DECIMAL(18,2)"; 
         default: 
-            var refTable = column["$ref"].split('definitions/')[1];
-            return columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"(Id)";
-            break
+            var refTable = column['$ref'].split('definitions/')[1];
+         		alters+="ALTER TABLE "+entityName+" ADD "+columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"(Id);";
+
+            return null;//columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"(Id)"; 
     }
 };
- 
 
 var generateSQLTables = function(definitions){
     var result = "";
+    alters = "";
     Object.keys(definitions)
         .forEach(entityName => {
             var tableResult = "CREATE TABLE " + entityName + " ( \n";
@@ -44,14 +45,20 @@ var generateSQLTables = function(definitions){
                     if(columnName!= "type"){
                         var col =  columns[columnName]
                         console.log(col);
-                        var type = getType(col,columnName);
+                        var type = getType(col,columnName,entityName);
                         var comma = k<keysCounter? ',':'';
-                        tableResult+= type +comma + " \n";
+                        if(type){
+	                        tableResult+= type +comma + " \n";
+                        }
                     }
                 });
             
             result+= tableResult + ");\n";
         });
+        
+    result+=alters;
+        
+        
     console.log(result);
     $('#sql-result').val(result);
 };
