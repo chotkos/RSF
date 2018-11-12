@@ -42,7 +42,7 @@ function getGetByIdObject(entityName) {
 
 function getRemoveObject(entityName) {
     return {
-        "post": {
+        "delete": {
             "summary": entityName + " - Remove by ID",
             "description": "Removes a single element",
             "operationId": "remove" + entityName + "ById",
@@ -114,7 +114,7 @@ function getCreateObject(entityName) {
 
 function getUpdateObject(entityName) {
     return {
-        "post": {
+        "put": {
             "summary": entityName + " - Update",
             "description": "Updates a single element",
             "operationId": "update" + entityName,
@@ -152,7 +152,7 @@ function getUpdateObject(entityName) {
 
 function getSearchObject(entityName) {
     return {
-        "post": {
+        "get": {
             "summary": entityName + " - Search by search criteria",
             "description": "Searches for elements",
             "operationId": "search" + entityName,
