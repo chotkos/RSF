@@ -31,10 +31,7 @@ function getGetByIdObject(entityName) {
                 "500":{
                     "description": "Internal server error"
                 }
-            }, 
-            "tags": [entityName],
-            "basePath": "/v2",
-            "host": "azureapipoc.azure-api.net"
+            }
         }
     };
 }
@@ -69,10 +66,7 @@ function getRemoveObject(entityName) {
                 "500": {
                     "description": "Internal server error"
                 }
-            }, 
-            "tags": [entityName],
-            "basePath": "/v2",
-            "host": "azureapipoc.azure-api.net"
+            }
         }
     };
 }
@@ -103,10 +97,7 @@ function getCreateObject(entityName) {
                 "500": {
                     "description": "Internal server error"
                 }
-            }, 
-            "tags": [entityName],
-            "basePath": "/v2",
-            "host": "azureapipoc.azure-api.net"
+            }
         }
     };
 }
@@ -140,10 +131,7 @@ function getUpdateObject(entityName) {
                 "500": {
                     "description": "Internal server error"
                 }
-            },
-            "tags": [entityName],            
-            "basePath": "/v2",
-            "host": "azureapipoc.azure-api.net"
+            }
         }
     };
 }
@@ -169,10 +157,7 @@ function getSearchObject(entityName) {
                 "500": {
                     "description": "Internal server error"
                 }
-            },
-            "tags": [entityName],            
-            "basePath": "/v2",
-            "host": "azureapipoc.azure-api.net"
+            }
         }
     };
 }
