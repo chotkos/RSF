@@ -1,0 +1,69 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is project of samle server for RSF V2. You can easily convert this file to json on editor.swagger.io and then import it into Azure API Management Service .",
+    "version": "1.0.0",
+    "title": "RSF API",
+    "termsOfService": "https://frontex.europa.eu/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "petstore.swagger.io",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "example-tag",
+      "description": "Description of example tag",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/notimplemented": {
+      "get": {
+        "tags": [
+          "tech"
+        ],
+        "responses": {
+          "501": {
+            "description": "Not implemented"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Airline": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "AirlineLogo": {
+          "type": "string"
+        },
+        "Active": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
