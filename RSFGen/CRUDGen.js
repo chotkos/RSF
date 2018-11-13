@@ -6,22 +6,13 @@ var runGenerator = function(fileUrl){
             Object.keys(json.definitions)
                 .forEach(e => {
                     console.log(`key=${e}  value=${json.definitions[e]}`);
-		     /*
+		     
                     json.paths["/" + e + "/{id}"] = getGetByIdObject(e);
                     json.paths["/" + e + "/create"] = getCreateObject(e);
                     json.paths["/" + e + "/update"] = getUpdateObject(e);
                     json.paths["/" + e + "/delete/{id}" ] = getRemoveObject(e);
                     json.paths["/" + e + "/search"] = getSearchObject(e);
-			*/
-		    var x = {};
-		    //experiment
-                    x["get"] = getGetByIdObject(e);
-                    x["post"] = getCreateObject(e);
-                    x["put"] = getUpdateObject(e);
-                    x["delete"] = getRemoveObject(e);
-                    //json.paths["/" + e + "/search"] = getSearchObject(e);
-		    
-		    json.paths["/"+e] = x;
+		 
                 });
 
             $('#path-result').val(JSON.stringify(json.paths));
