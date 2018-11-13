@@ -32,7 +32,8 @@ function getGetByIdObject(entityName) {
                     "description": "Internal server error"
                 }
             },
-            "tags":[entityName]
+            "tags":[entityName],
+            "produces": ["application/xml", "application/json"]
         }
     };
 }
@@ -68,7 +69,8 @@ function getRemoveObject(entityName) {
                     "description": "Internal server error"
                 }
             },
-            "tags":[entityName]
+            "tags":[entityName],
+            "produces": ["application/xml", "application/json"]
         }
     };
 }
@@ -100,7 +102,8 @@ function getCreateObject(entityName) {
                     "description": "Internal server error"
                 }
             },
-            "tags":[entityName]
+            "tags":[entityName],
+            "produces": ["application/xml", "application/json"]
         }
     };
 }
@@ -135,7 +138,8 @@ function getUpdateObject(entityName) {
                     "description": "Internal server error"
                 }
             },
-            "tags":[entityName]
+            "tags":[entityName],
+            "produces": ["application/xml", "application/json"]
         }
     };
 }
