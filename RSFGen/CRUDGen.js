@@ -15,10 +15,10 @@ var runGenerator = function(fileUrl){
 			*/
 		    var x = {};
 		    //experiment
-                    json.paths["get"] = getGetByIdObject(e);
-                    json.paths["post"] = getCreateObject(e);
-                    json.paths["put"] = getUpdateObject(e);
-                    json.paths["delete"] = getRemoveObject(e);
+                    x.paths["get"] = getGetByIdObject(e);
+                    x.paths["post"] = getCreateObject(e);
+                    x.paths["put"] = getUpdateObject(e);
+                    x.paths["delete"] = getRemoveObject(e);
                     //json.paths["/" + e + "/search"] = getSearchObject(e);
 		    
 		    json.paths["/"+e] = x;
