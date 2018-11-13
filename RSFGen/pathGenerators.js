@@ -11,7 +11,7 @@ function getGetByIdObject(entityName) {
             "parameters": [
                 {
                     "name": "id",
-                    "in": "body",
+                    "in": "query",
                     "description": "ID of " + entityName + " to return",
                     "required": true,
                     "type": "integer",
@@ -51,7 +51,7 @@ function getRemoveObject(entityName) {
             "parameters": [
                 {
                     "name": "id",
-                    "in": "body",
+                    "in": "query",
                     "description": "ID of " + entityName + " to delete",
                     "required": true,
                     "type": "integer",
