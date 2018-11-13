@@ -1,5 +1,6 @@
 function getGetByIdObject(entityName) {
     return {
+        "get": {
             "summary": entityName + " - Get by ID",
             "description": "Returns a single element",
             "operationId": "get" + entityName + "ById",
@@ -32,13 +33,13 @@ function getGetByIdObject(entityName) {
                 }
             },
             "tags":[entityName]
-        
+        }
     };
 }
 
 function getRemoveObject(entityName) {
     return {
-        
+        "delete": {
             "summary": entityName + " - Remove by ID",
             "description": "Removes a single element",
             "operationId": "remove" + entityName + "ById",
@@ -68,13 +69,13 @@ function getRemoveObject(entityName) {
                 }
             },
             "tags":[entityName]
-        
+        }
     };
 }
 
 function getCreateObject(entityName) {
     return {
-       
+        "post": {
             "summary": entityName + " - Create",
             "description": "Creates a single element",
             "operationId": "create" + entityName,
@@ -100,13 +101,13 @@ function getCreateObject(entityName) {
                 }
             },
             "tags":[entityName]
-        
+        }
     };
 }
 
 function getUpdateObject(entityName) {
     return {
-        
+        "put": {
             "summary": entityName + " - Update",
             "description": "Updates a single element",
             "operationId": "update" + entityName,
@@ -135,14 +136,14 @@ function getUpdateObject(entityName) {
                 }
             },
             "tags":[entityName]
-        
+        }
     };
 }
 
 
 function getSearchObject(entityName) {
     return {
-        
+        "get": {
             "summary": entityName + " - Search by search criteria",
             "description": "Searches for elements",
             "operationId": "search" + entityName,
@@ -160,7 +161,7 @@ function getSearchObject(entityName) {
                 "500": {
                     "description": "Internal server error"
                 }
-            
+            }
         }
     };
 }
