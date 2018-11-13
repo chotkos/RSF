@@ -4,7 +4,7 @@
     "description": "This is project of samle server for RSF V2. You can easily convert this file to json on editor.swagger.io and then import it into Azure API Management Service .",
     "version": "1.0.0",
     "title": "RSF API",
-    "termsOfService": "https://frontex.europa.eu/",
+    "termsOfService": "https://pocrsfapi.azurewebsites.net",
     "contact": {
       "email": "apiteam@swagger.io"
     },
@@ -13,8 +13,8 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "petstore.swagger.io",
-  "basePath": "/v2",
+  "host": "https://pocrsfapi.azurewebsites.net",
+  "basePath": "/api",
   "tags": [
     {
       "name": "example-tag",
