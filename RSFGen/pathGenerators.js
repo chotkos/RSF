@@ -107,7 +107,7 @@ function getCreateObject(entityName) {
 
 function getUpdateObject(entityName) {
     return {
-        "put": {
+        "patch": {
             "summary": entityName + " - Update",
             "description": "Updates a single element",
             "operationId": "update" + entityName,
@@ -136,32 +136,6 @@ function getUpdateObject(entityName) {
                 }
             },
             "tags":[entityName]
-        }
-    };
-}
-
-
-function getSearchObject(entityName) {
-    return {
-        "get": {
-            "summary": entityName + " - Search by search criteria",
-            "description": "Searches for elements",
-            "operationId": "search" + entityName,
-            "produces": [
-                //"application/xml",
-                "application/json"
-            ],
-            "responses": {
-                "200": {
-                    "description": "Successfully searched requested element"
-                },
-                "404": {
-                    "description": "Element not found"
-                },
-                "500": {
-                    "description": "Internal server error"
-                }
-            }
         }
     };
 }
