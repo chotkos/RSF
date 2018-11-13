@@ -52,7 +52,7 @@ function getRemoveObject(entityName) {
                 {
                     "name": "id",
                     "in": "body",
-                    "description": "ID of " + entityName + " to return",
+                    "description": "ID of " + entityName + " to delete",
                     "required": true,
                     "type": "integer",
                     "format": "int64"
