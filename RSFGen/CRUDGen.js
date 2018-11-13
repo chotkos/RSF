@@ -1,5 +1,5 @@
 var runGenerator = function(fileUrl){
-	$.getJSON("data.json", function (json) {
+	$.getJSON(fileUrl, function (json) {
             console.log("JSON Data received ", json);
             let paths = {};
 
