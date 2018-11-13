@@ -11,7 +11,7 @@ function getGetByIdObject(entityName) {
             "parameters": [
                 {
                     "name": "id",
-                    "in": "path",
+                    "in": "body",
                     "description": "ID of " + entityName + " to return",
                     "required": true,
                     "type": "integer",
@@ -50,7 +50,7 @@ function getRemoveObject(entityName) {
             "parameters": [
                 {
                     "name": "id",
-                    "in": "path",
+                    "in": "body",
                     "description": "ID of " + entityName + " to return",
                     "required": true,
                     "type": "integer",
