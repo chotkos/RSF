@@ -14,10 +14,10 @@ var runGenerator = function(fileUrl){
                     json.paths["/" + e + "/search"] = getSearchObject(e);*/
 		    
 		    json.paths["/"+e] = {};
-		    json.paths["/"+e]  = $.extend(jspon.paths["/"+e], getGetByIdObject(e));		    
-		    json.paths["/"+e]  = $.extend(jspon.paths["/"+e], getCreateObject(e));		    
-		    json.paths["/"+e]  = $.extend(jspon.paths["/"+e], getUpdateObject(e));		    
-		    json.paths["/"+e]  = $.extend(jspon.paths["/"+e], getRemoveObject(e));	    
+		    json.paths["/"+e]  = $.extend(json.paths["/"+e], getGetByIdObject(e));		    
+		    json.paths["/"+e]  = $.extend(json.paths["/"+e], getCreateObject(e));		    
+		    json.paths["/"+e]  = $.extend(json.paths["/"+e], getUpdateObject(e));		    
+		    json.paths["/"+e]  = $.extend(json.paths["/"+e], getRemoveObject(e));	    
 		 
                 });
 
