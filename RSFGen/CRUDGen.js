@@ -13,7 +13,11 @@ var runGenerator = function(fileUrl){
                     json.paths["/" + e + "/delete/{id}" ] = getRemoveObject(e);
                     json.paths["/" + e + "/search"] = getSearchObject(e);*/
 		    
-		    json.paths["/"+e] = {};
+		    if (typeof json.paths["/"+e] === 'undefined') {
+    			// the variable is defined    
+			json.paths["/"+e] = {};
+		    }
+		
 		    json.paths["/"+e]  = $.extend(json.paths["/"+e], getGetByIdObject(e));		    
 		    json.paths["/"+e]  = $.extend(json.paths["/"+e], getCreateObject(e));		    
 		    json.paths["/"+e]  = $.extend(json.paths["/"+e], getUpdateObject(e));		    
