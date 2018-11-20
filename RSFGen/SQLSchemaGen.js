@@ -31,6 +31,18 @@ var getType = function(column,columnName,entityName){
     }
 };
 
+
+var fillEntitySelector = function(){
+
+	var entities = Object.keys(document.data.definitions);
+	$('#model-select').empty()
+
+	$.each( entities, function( key, value ) {
+	  $('#model-select').append("<option value='"+value+"'>"+value+"</option>")
+	});
+};
+
+
 var generateSQLTables = function(definitions){
     var dbName = $('#db-name').val();
     var result = "IF EXISTS(select * from sys.databases where name='"+dbName+"')" + 
@@ -64,4 +76,5 @@ var generateSQLTables = function(definitions){
         
     console.log(result);
     $('#sql-result').val(result);
+	fillEntitySelector();
 };
