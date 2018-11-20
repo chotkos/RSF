@@ -1,31 +1,30 @@
-var generateDTO = function(){
+var generateDTO = function () {
 
 	var properties = "\n";
-    var entityName = $('#model-select').val();
+	var entityName = $('#model-select').val();
 	var propertiesObj = document.data.definitions[entityName].properties;
 
 	Object.keys(propertiesObj)
 		.forEach(columnName => {
-			if(columnName != "Id")
-			{
+			if (columnName != "Id") {
 				var column = propertiesObj[columnName];
 				console.log(columnName);
-				switch(column.type){
+				switch (column.type) {
 					case "integer":
-						properties += "\t\tpublic int "+columnName+" { get; set; }\n";
+						properties += "\t\tpublic int " + columnName + " { get; set; }\n";
 						break;
 					case "string":
-						if(column.format === "date-time"){
-							properties += "\t\tpublic DateTime "+columnName+" { get; set; }\n";
+						if (column.format === "date-time") {
+							properties += "\t\tpublic DateTime " + columnName + " { get; set; }\n";
 						} else {
-							properties += "\t\tpublic string "+columnName+" { get; set; }\n";
+							properties += "\t\tpublic string " + columnName + " { get; set; }\n";
 						}
 						break;
 					case "boolean":
-						properties += "\t\tpublic bool? "+columnName+" { get; set; }\n";
+						properties += "\t\tpublic bool? " + columnName + " { get; set; }\n";
 						break;
 					case "number":
-						properties += "\t\tpublic decimal? "+columnName+" { get; set; }\n";
+						properties += "\t\tpublic decimal " + columnName + " { get; set; }\n";
 						break;
 					default:
 				}
@@ -35,16 +34,17 @@ var generateDTO = function(){
 
 
 
-  $.ajax({
-    url : "ExampleDTO.cs",
-    dataType: "text",
-    success : function (data) {
-      var dto = data;
-      data = data.replace(/{{EntityName}}/g, entityName);
-	  data = data.replace(/{{Properties}}/g, properties);
+	$.ajax({
+		url: "ExampleDTO.cs",
+		dataType: "text",
+		success: function (data) {
+			var dto = data;
+			data = data.replace(/{{EntityName}}/g, entityName);
+			data = data.replace(/{{Properties}}/g, properties);
 
-      console.log(data);
-	  
-  }});
-  
+			console.log(data);
+
+		}
+	});
+
 };
