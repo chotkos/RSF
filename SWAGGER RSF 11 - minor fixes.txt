@@ -494,7 +494,7 @@ definitions:
       Date:
         type: "string"
         format: "date-time" 
-      ReturnOperationId: 
+      ReturnOperation: 
         $ref: "#/definitions/ReturnOperation"
       Action:
         type: "string"
