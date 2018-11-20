@@ -91,6 +91,7 @@ document.onreadystatechange = () => {
       });
       $("#run-model").click(e=>{
       	generateDTO();
+	generateMap();
       });
     }
 
