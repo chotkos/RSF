@@ -232,7 +232,7 @@ definitions:
       OriginAirport: #@Refactor - changed to lookup
         $ref: "#/definitions/Airport" 
         #type: "string"
-      ReturnOperationID:
+      ReturnOperation:
         $ref: "#/definitions/ReturnOperation" 
       WaitingTimeInMinutes: 
         type: "integer"
