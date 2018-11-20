@@ -5,6 +5,6 @@ var generateDTO = function(){
     dataType: "text",
     success : function (data) {
       console.log("ExampleDTO:",data);
-  });
+  }});
   
 };
