@@ -27,6 +27,8 @@ var generateDTO = function () {
 						properties += "\t\tpublic decimal " + columnName + " { get; set; }\n";
 						break;
 					default:
+						properties += "\t\tpublic int? " + columnName + "Id { get; set; }\n";
+
 				}
 			}
 		});
