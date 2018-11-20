@@ -7,7 +7,7 @@ var getType = function(column,columnName,entityName){
     switch(column.type){
         case "integer":
             if(columnName == "[Id]"){
-                return  columnName+" INT AUTO_INCREMENT PRIMARY KEY"
+                return  columnName+" INT IDENTITY(1,1) PRIMARY KEY"
             } else {
                 return  columnName+" INT";
             }
