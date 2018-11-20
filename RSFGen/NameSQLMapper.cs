@@ -25,9 +25,7 @@ namespace RestApp.Mappers
         SQLProvider<{{EntityName}}DTO> GetSQLProvider({{EntityName}}DTO v)
         {
             var provider = new SQLProvider<{{EntityName}}DTO>(v, v.Id, EntityName);
-            provider.AddColumn("Name", v.Name, "'");
-            provider.AddColumn("Code", v.Code, "'");
-            provider.AddColumn("AirlineLogo", v.AirlineLogo, "'");
+            {{Columns}}
             if(v.Active.HasValue) provider.AddColumn("Active", (v.Active.Value ? 1:0).ToString(), string.Empty);
             return provider;
         }
