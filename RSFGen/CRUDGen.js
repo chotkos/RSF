@@ -89,7 +89,9 @@ document.onreadystatechange = () => {
       $("#run").click(e => {
       	runGenerator($("#dataFileUrl").val());
       });
-    
+      $("#run-model").click(e=>{
+      	generateDTO();
+      });
     }
 
 };
