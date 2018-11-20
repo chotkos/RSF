@@ -297,7 +297,7 @@
         "OriginAirport": {
           "$ref": "#/definitions/Airport"
         },
-        "ReturnOperationID": {
+        "ReturnOperation": {
           "$ref": "#/definitions/ReturnOperation"
         },
         "WaitingTimeInMinutes": {
