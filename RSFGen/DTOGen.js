@@ -45,6 +45,7 @@ var generateDTO = function () {
 			data = data.replace(/{{Properties}}/g, properties);
 
 			console.log(data);
+			$("#dto").val(data);
 
 		}
 	});
