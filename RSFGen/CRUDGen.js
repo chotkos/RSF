@@ -81,14 +81,8 @@ document.onreadystatechange = () => {
         });
 
 
-        /*var getAsFile = function(filename, ){
-
-        };*/
-
-        $("#download").click(e => {
-            var filename = "withPaths.json";
+        var getAsFile = function(filename, data){
             var type = "text/plain";
-            var data = $("#json-result").val();
             var file = new Blob([data], {
                 type: type
             });
@@ -106,8 +100,32 @@ document.onreadystatechange = () => {
                     window.URL.revokeObjectURL(url);
                 }, 0);
             }
+        };
+
+        $("#download").click(e => {
+            getAsFile("withPaths.json",$("#json-result").val());
         });
 
+        $("#dto-download").click(e => {
+            var entity = $('#model-select').val();
+            getAsFile(entity+"DTO.cs",$("#dto").val());
+        });
+        $("#irepository-download").click(e => {
+            var entity = $('#model-select').val();
+            getAsFile("I"+entity+"Repository.cs",$("#irepository").val());
+        });
+        $("#repository-download").click(e => {
+            var entity = $('#model-select').val();
+            getAsFile(entity+"Repository.cs",$("#repository").val());
+        });        
+        $("#controller-download").click(e => {
+            var entity = $('#model-select').val();
+            getAsFile(entity+"Controller.cs",$("#controller").val());
+        });
+        $("#mapper-download").click(e => {
+            var entity = $('#model-select').val();
+            getAsFile(entity+"SQLMapper.cs",$("#mapper").val());
+        });
 
          
 
