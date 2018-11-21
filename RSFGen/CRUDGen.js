@@ -6,12 +6,6 @@ var runGenerator = function (fileUrl) {
         Object.keys(json.definitions)
             .forEach(e => {
                 console.log(`key=${e}  value=${json.definitions[e]}`);
-                /* 
-                    json.paths["/" + e + "/{id}"] = getGetByIdObject(e);
-                    json.paths["/" + e + "/create"] = getCreateObject(e);
-                    json.paths["/" + e + "/update"] = getUpdateObject(e);
-                    json.paths["/" + e + "/delete/{id}" ] = getRemoveObject(e);
-                    json.paths["/" + e + "/search"] = getSearchObject(e);*/
 
                 if (typeof json.paths["/" + e] === 'undefined') {
                     // the variable is defined    
@@ -65,7 +59,31 @@ document.onreadystatechange = () => {
             generateSQLTables(document.data.definitions);
         });
 
- 
+        $("#dto").click(e => {
+            e.currentTarget.select();
+            document.execCommand('copy');
+        });
+        $("#controller").click(e => {
+            e.currentTarget.select();
+            document.execCommand('copy');
+        });
+        $("#mapper").click(e => {
+            e.currentTarget.select();
+            document.execCommand('copy');
+        });
+        $("#repository").click(e => {
+            e.currentTarget.select();
+            document.execCommand('copy');
+        });
+        $("#irepository").click(e => {
+            e.currentTarget.select();
+            document.execCommand('copy');
+        });
+
+
+        /*var getAsFile = function(filename, ){
+
+        };*/
 
         $("#download").click(e => {
             var filename = "withPaths.json";
@@ -90,6 +108,10 @@ document.onreadystatechange = () => {
             }
         });
 
+
+         
+
+
         $("#run").click(e => {
             runGenerator($("#dataFileUrl").val());
         });
@@ -97,6 +119,8 @@ document.onreadystatechange = () => {
             generateDTO();
             generateMap();
             generateController();
+            generateRepository();
+            generateIRepository();
         });
     }
 
