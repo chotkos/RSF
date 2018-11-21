@@ -1,11 +1,11 @@
 var runGenerator = function (fileUrl) {
     $.getJSON(fileUrl, function (json) {
-        console.log("JSON Data received ", json);
+        //console.log("JSON Data received ", json);
         let paths = {};
 
         Object.keys(json.definitions)
             .forEach(e => {
-                console.log(`key=${e}  value=${json.definitions[e]}`);
+                //console.log(`key=${e}  value=${json.definitions[e]}`);
 
                 if (typeof json.paths["/" + e] === 'undefined') {
                     // the variable is defined    
@@ -22,8 +22,8 @@ var runGenerator = function (fileUrl) {
         $('#path-result').val(JSON.stringify(json.paths));
         //json.paths = paths;
         $('#json-result').val(JSON.stringify(json));
-        console.log("Your new paths", json.paths);
-        console.log("Your new JSON", json);
+        //console.log("Your new paths", json.paths);
+        //console.log("Your new JSON", json);
         document.data = json;
 
 

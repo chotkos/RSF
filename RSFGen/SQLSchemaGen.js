@@ -11,14 +11,12 @@ var getType = function(column,columnName,entityName){
             } else {
                 return  columnName+" INT";
             }
-            break;
         case "string":
             if(column.format === "date-time"){
                 return  columnName+" DATETIME";
             } else {
                 return  columnName+" VARCHAR(100)";
             }
-            break;
         case "boolean":
             return  columnName+" BIT"
         case "number":
@@ -26,8 +24,7 @@ var getType = function(column,columnName,entityName){
         default: 
             var refTable = column['$ref'].split('definitions/')[1]; 
             alters+="ALTER TABLE "+entityName+" ADD ["+originalCn+"Id] INT FOREIGN KEY REFERENCES "+refTable+"(Id); \n";
-
-            return null;//columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"(Id)"; 
+            return null;
     }
 };
 
@@ -59,7 +56,6 @@ var generateSQLTables = function(definitions){
                     k++;
                     if(columnName!= "type"){
                         var col =  columns[columnName]
-                        console.log(col);
                         var type = getType(col,columnName,entityName);
                         var comma = k<keysCounter? ',':'';
                         if(type){
@@ -73,8 +69,6 @@ var generateSQLTables = function(definitions){
         
     result+=alters;
         
-        
-    console.log(result);
     $('#sql-result').val(result);
 	fillEntitySelector();
 };

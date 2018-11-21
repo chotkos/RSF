@@ -8,7 +8,7 @@ var generateMap = function () {
 		.forEach(columnName => {
 			if (columnName != "Id") {
 				var column = propertiesObj[columnName];
-				console.log(columnName);
+				//console.log(columnName);
 				switch (column.type) {
 					case "integer":
 						//provider.AddColumn("NumberInt", v.NumberInt, "");

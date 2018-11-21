@@ -8,7 +8,7 @@ var generateDTO = function () {
 		.forEach(columnName => {
 			if (columnName != "Id") {
 				var column = propertiesObj[columnName];
-				console.log(columnName);
+				//console.log(columnName);
 				switch (column.type) {
 					case "integer":
 						properties += "\t\tpublic int " + columnName + " { get; set; }\n";
