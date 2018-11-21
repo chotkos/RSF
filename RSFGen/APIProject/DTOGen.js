@@ -37,7 +37,7 @@ var generateDTO = function () {
 
 
 	$.ajax({
-		url: "ExampleDTO.cs",
+		url: "APIProject/Templates/ExampleDTO.cs",
 		dataType: "text",
 		success: function (data) {
 			var dto = data;

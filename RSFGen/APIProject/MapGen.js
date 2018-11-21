@@ -38,7 +38,7 @@ var generateMap = function () {
 
 
 	$.ajax({
-		url: "NameSQLMapper.cs",
+		url: "APIProject/Templates/NameSQLMapper.cs",
 		dataType: "text",
 		success: function (data) {
 			data = data.replace(/{{EntityName}}/g, entityName);
