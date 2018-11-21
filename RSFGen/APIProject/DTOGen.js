@@ -40,13 +40,9 @@ var generateDTO = function () {
 		url: "APIProject/Templates/ExampleDTO.cs",
 		dataType: "text",
 		success: function (data) {
-			var dto = data;
 			data = data.replace(/{{EntityName}}/g, entityName);
 			data = data.replace(/{{Properties}}/g, properties);
-
-			console.log(data);
 			$("#dto").val(data);
-
 		}
 	});
 
