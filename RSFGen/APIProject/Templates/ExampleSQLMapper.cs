@@ -26,7 +26,6 @@ namespace RestApp.Mappers
         {
             var provider = new SQLProvider<{{EntityName}}DTO>(v, v.Id, EntityName);
             {{Columns}}
-            if(v.Active.HasValue) provider.AddColumn("Active", (v.Active.Value ? 1:0).ToString(), string.Empty);
             return provider;
         }
 
