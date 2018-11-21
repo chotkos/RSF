@@ -79,6 +79,11 @@ document.onreadystatechange = () => {
             e.currentTarget.select();
             document.execCommand('copy');
         });
+        $("#di").click(e => {
+            e.currentTarget.select();
+            document.execCommand('copy');
+        });
+
 
 
         var getAsFile = function(filename, data){
@@ -139,6 +144,7 @@ document.onreadystatechange = () => {
             generateController();
             generateRepository();
             generateIRepository();
+            generateDI();
         });
     }
 
