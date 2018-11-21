@@ -24,7 +24,7 @@ var getType = function(column,columnName,entityName){
         case "number":
             return  columnName+" DECIMAL(18,2)"; 
         default: 
-            var refTable = column['$ref'].split('definitions/')[1];
+            var refTable = column['$ref'].split('definitions/')[1]; 
             alters+="ALTER TABLE "+entityName+" ADD ["+originalCn+"Id] INT FOREIGN KEY REFERENCES "+refTable+"(Id); \n";
 
             return null;//columnName+"Id INT FOREIGN KEY REFERENCES "+refTable+"(Id)"; 

@@ -904,9 +904,8 @@
         "Code": {
           "type": "string"
         },
-        "DictionaryId": {
-          "type": "integer",
-          "format": "int64"
+        "Dictionary": {
+          "$ref": "#/definitions/Dictionary"
         }
       }
     }

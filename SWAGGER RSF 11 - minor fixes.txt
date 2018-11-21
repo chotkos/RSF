@@ -896,9 +896,11 @@ definitions:
         type: "string"
       Code: # @Notice: Can be used for multilanguage solutions
         type: "string"
-      DictionaryId:
-        type: "integer"
-        format: "int64"
+      #DictionaryId:
+      #  type: "integer"
+      #  format: "int64"
+      Dictionary:  
+        $ref: "#/definitions/Dictionary"
         
   
   
