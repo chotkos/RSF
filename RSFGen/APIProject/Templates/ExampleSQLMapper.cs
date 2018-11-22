@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace RestApp.Mappers
 {
-    // @TODO: If you are writing this second or third time, you surely need a generator based on swagger right now.
     public class {{EntityName}}SqlMapper : ISqlMapper<{{EntityName}}DTO>
     {
         public string ClassName = nameof({{EntityName}}DTO);
@@ -28,21 +27,24 @@ namespace RestApp.Mappers
             {{Columns}}
             return provider;
         }
+         
 
-        public string GetCreateFieldsSql({{EntityName}}DTO v)
-        {
-            var sqlProvider = GetSQLProvider(v) ;
-            return sqlProvider.GetCreateFieldsSql();
-        }
-        public string GetUpdateFieldsSql({{EntityName}}DTO v)
+        public KeyValuePair<string, DynamicParameters> GetCreateFieldsCmd({{EntityName}}DTO v)//@TODO: finish this on every sql and every mapper
         {
             var sqlProvider = GetSQLProvider(v);
-            return sqlProvider.GetUpdateFieldsSql();
+            return sqlProvider.GetCreateFieldsCmd(); 
         }
-        public string GetSearchCriteriaFieldsSql({{EntityName}}DTO v)
+
+        public KeyValuePair<string, DynamicParameters> GetUpdateFieldsCmd({{EntityName}}DTO v)
         {
             var sqlProvider = GetSQLProvider(v);
-            return sqlProvider.GetSearchCriteriaSql();
+            return sqlProvider.GetUpdateFieldsCmd();
         }
+
+        public KeyValuePair<string, DynamicParameters> GetSearchCriteriaFieldsCmd({{EntityName}}DTO v)
+        {
+            var sqlProvider = GetSQLProvider(v);
+            return sqlProvider.GetSearchCriteriaCmd();
+        } 
     }
 }
