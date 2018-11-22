@@ -16,10 +16,12 @@ namespace RestApp.Controllers
     {
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly I{{EntityName}}Repository repository;
+        private readonly NLog.ILogger logger;
 
-        public {{EntityName}}Controller(I{{EntityName}}Repository repository)
+        public {{EntityName}}Controller(I{{EntityName}}Repository repository, NLog.ILogger logger)
         {
             this.repository = repository;
+            this.logger = logger;
         }
 
         [HttpGet("GetAll")]

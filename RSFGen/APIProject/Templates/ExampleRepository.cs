@@ -10,8 +10,8 @@ namespace RestApp.Repositories
     {
         private readonly IHttpContextAccessor httpContextAccessor;
 
-        public {{EntityName}}Repository(IServiceProvider serviceProvider) 
-            :base(serviceProvider)
+        public {{EntityName}}Repository(IServiceProvider serviceProvider, NLog.ILogger logger) 
+            :base(serviceProvider, logger)
         {
             this.EntityName = "{{EntityName}}";
             httpContextAccessor = serviceProvider.GetService<IHttpContextAccessor>(); 
