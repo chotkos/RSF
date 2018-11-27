@@ -30,7 +30,7 @@ var generateMap = function () {
 						properties += '\t\t\tif(v.' + columnName + '.HasValue) provider.AddColumn("' + columnName + '", (v.' + columnName + '.Value ? 1:0).ToString());\n';
 						break;
 					case "number":
-						properties += '\t\t\tprovider.AddColumn("' + columnName + '", v.' + columnName + ');\n';
+						properties += '\t\t\tprovider.AddColumn("' + columnName + '", v.' + columnName + '.ToString() );\n';
 						break;
 					default:
 						if (column["$ref"]) {
