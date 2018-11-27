@@ -1,4 +1,5 @@
-using RestApp.Entities.Dto;
+using Dapper;
+using RSF2.DTO.Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

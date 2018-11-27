@@ -25,7 +25,15 @@ var generateMap = function () {
 						properties += '\t\t\tprovider.AddColumn("' + columnName + '", v.' + columnName + ');\n';
 						break;
 					default:
-						properties += '\t\t\tprovider.AddColumn("' + columnName + '", v.' + columnName + ');\n';
+						if(column["$ref"])
+						{
+							var idSuffix = column["$ref"] ? 'Id' : '';
+							properties += '\t\t\tvar keyValue = v.'+columnName+idSuffix+'.HasValue ? v.'+columnName+idSuffix+'.Value.ToString() : String.Empty;\n';
+							properties += '\t\t\tprovider.AddColumn("' + columnName + idSuffix + '", keyValue);\n';
+
+						} else{
+							properties += '\t\t\tprovider.AddColumn("' + columnName  + '", v.' + columnName  + ');\n';
+						}
 
 				}
 			}

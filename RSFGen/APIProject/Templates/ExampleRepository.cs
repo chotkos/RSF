@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Http; 
-using RestApp.Entities.Dto; 
+using RSF2.DTO.Entities.Dto;
 using RestApp.Repositories.Interfaces;
 using System; 
 using Microsoft.Extensions.DependencyInjection;

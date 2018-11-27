@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using RestApp.Repositories.Interfaces;
-using RestApp.Entities.Dto;
+using RSF2.DTO.Entities.Dto;
 
 namespace RestApp.Controllers
 {
