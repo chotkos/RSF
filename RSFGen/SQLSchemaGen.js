@@ -21,9 +21,11 @@ var getType = function(column,columnName,entityName){
             return  columnName+" BIT"
         case "number":
             return  columnName+" DECIMAL(18,2)"; 
-        default: 
+        case "object": 
             var refTable = column['$ref'].split('definitions/')[1]; 
             alters+="ALTER TABLE "+entityName+" ADD ["+originalCn+"Id] INT FOREIGN KEY REFERENCES "+refTable+"(Id); \n";
+            return null;
+	case "default":
             return null;
     }
 };
