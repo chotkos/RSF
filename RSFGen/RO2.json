@@ -36,7 +36,7 @@
     }
   },
   "paths": {
-    "/api/Test/Test": {
+    "/Test/": {
       "get": {
         "tags": [
           "Test"
@@ -53,7 +53,7 @@
     }
   },
   "definitions": {
-    "ReturnOperationDTO": {
+    "ReturnOperation": {
       "type": "object",
       "properties": {
         "Id": {
@@ -69,10 +69,10 @@
           "type": "string"
         },
         "placeOfDeparture": {
-          "$ref": "#/definitions/LocationDTO"
+          "$ref": "#/definitions/Location"
         },
         "placeOfReturnToEU": {
-          "$ref": "#/definitions/LocationDTO"
+          "$ref": "#/definitions/Location"
         },
         "numberOfDEPs": {
           "format": "int32",
@@ -106,18 +106,18 @@
         "viaSend": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ViaDTO"
+            "$ref": "#/definitions/Via"
           }
         },
         "viaReturn": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ViaDTO"
+            "$ref": "#/definitions/Via"
           }
         }
       }
     },
-    "ViaDTO": {
+    "Via": {
       "type": "object",
       "properties": {
         "id": {
@@ -125,7 +125,7 @@
           "type": "integer"
         },
         "location": {
-          "$ref": "#/definitions/LocationDTO"
+          "$ref": "#/definitions/Location"
         },
         "days": {
           "type": "integer",
@@ -133,21 +133,21 @@
         }
       }
     },
-    "LocationDTO": {
+    "Location": {
       "type": "object",
       "properties": {
         "country": {
-          "$ref": "#/definitions/CountryDTO"
+          "$ref": "#/definitions/Country"
         },
         "city": {
-          "$ref": "#/definitions/CityDTO"
+          "$ref": "#/definitions/City"
         },
         "airport": {
-          "$ref": "#/definitions/AirportDTO"
+          "$ref": "#/definitions/Airport"
         }
       }
     },
-    "DictionaryDTO": {
+    "Dictionary": {
       "type": "object",
       "properties": {
         "id": {
@@ -162,7 +162,7 @@
         }
       }
     },
-    "DictionaryValueDTO": {
+    "DictionaryValue": {
       "type": "object",
       "properties": {
         "id": {
@@ -181,7 +181,7 @@
         }
       }
     },
-    "AirportDTO": {
+    "Airport": {
       "type": "object",
       "properties": {
         "id": {
@@ -213,7 +213,7 @@
         }
       }
     },
-    "CityDTO": {
+    "City": {
       "type": "object",
       "properties": {
         "id": {
@@ -235,7 +235,7 @@
         }
       }
     },
-    "CountryDTO": {
+    "Country": {
       "type": "object",
       "properties": {
         "id": {
