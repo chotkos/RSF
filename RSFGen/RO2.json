@@ -60,56 +60,56 @@
           "format": "int32",
           "type": "integer"
         },
-        "operationTypeId": {
+        "OperationTypeId": {
           "format": "int32",
           "type": "integer"
         },
-        "operationDate": {
+        "OperationDate": {
           "format": "date-time",
           "type": "string"
         },
-        "placeOfDeparture": {
+        "PlaceOfDeparture": {
           "$ref": "#/definitions/Location"
         },
-        "placeOfReturnToEU": {
+        "PlaceOfReturnToEU": {
           "$ref": "#/definitions/Location"
         },
-        "numberOfDEPs": {
+        "NumberOfDEPs": {
           "format": "int32",
           "type": "integer"
         },
-        "escorts": {
+        "Escorts": {
           "format": "int32",
           "type": "integer"
         },
-        "medical": {
+        "Medical": {
           "format": "int32",
           "type": "integer"
         },
-        "monitors": {
+        "Monitors": {
           "format": "int32",
           "type": "integer"
         },
-        "interpreters": {
+        "Interpreters": {
           "format": "int32",
           "type": "integer"
         },
-        "referenceNumber": {
+        "ReferenceNumber": {
           "type": "string"
         },
-        "remarks": {
+        "Remarks": {
           "type": "string"
         },
-        "comments": {
+        "Comments": {
           "type": "string"
         },
-        "viaSend": {
+        "ViaSend": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Via"
           }
         },
-        "viaReturn": {
+        "ViaReturn": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Via"
@@ -120,14 +120,14 @@
     "Via": {
       "type": "object",
       "properties": {
-        "id": {
+        "Id": {
           "format": "int32",
           "type": "integer"
         },
-        "location": {
+        "Location": {
           "$ref": "#/definitions/Location"
         },
-        "days": {
+        "Days": {
           "type": "integer",
           "format": "int32"
         }
@@ -136,13 +136,13 @@
     "Location": {
       "type": "object",
       "properties": {
-        "country": {
+        "Country": {
           "$ref": "#/definitions/Country"
         },
-        "city": {
+        "City": {
           "$ref": "#/definitions/City"
         },
-        "airport": {
+        "Airport": {
           "$ref": "#/definitions/Airport"
         }
       }
@@ -150,14 +150,14 @@
     "Dictionary": {
       "type": "object",
       "properties": {
-        "id": {
+        "Id": {
           "format": "int32",
           "type": "integer"
         },
-        "name": {
+        "Name": {
           "type": "string"
         },
-        "description": {
+        "Description": {
           "type": "string"
         }
       }
@@ -165,17 +165,17 @@
     "DictionaryValue": {
       "type": "object",
       "properties": {
-        "id": {
+        "Id": {
           "format": "int32",
           "type": "integer"
         },
-        "name": {
+        "Name": {
           "type": "string"
         },
-        "code": {
+        "Code": {
           "type": "string"
         },
-        "dictionaryId": {
+        "DictionaryId": {
           "format": "int32",
           "type": "integer"
         }
@@ -184,31 +184,31 @@
     "Airport": {
       "type": "object",
       "properties": {
-        "id": {
+        "Id": {
           "format": "int32",
           "type": "integer"
         },
-        "active": {
+        "Active": {
           "type": "boolean"
         },
-        "cityId": {
+        "CityId": {
           "format": "int32",
           "type": "integer"
         },
-        "countryId": {
+        "CountryId": {
           "format": "int32",
           "type": "integer"
         },
-        "code": {
+        "Code": {
           "type": "string"
         },
-        "isValidDestination": {
+        "IsValidDestination": {
           "type": "boolean"
         },
-        "isValidOrigin": {
+        "IsValidOrigin": {
           "type": "boolean"
         },
-        "name": {
+        "Name": {
           "type": "string"
         }
       }
@@ -216,21 +216,21 @@
     "City": {
       "type": "object",
       "properties": {
-        "id": {
+        "Id": {
           "format": "int32",
           "type": "integer"
         },
-        "code": {
+        "Code": {
           "type": "string"
         },
-        "name": {
+        "Name": {
           "type": "string"
         },
-        "countryId": {
+        "CountryId": {
           "format": "int32",
           "type": "integer"
         },
-        "active": {
+        "Active": {
           "type": "boolean"
         }
       }
@@ -238,17 +238,17 @@
     "Country": {
       "type": "object",
       "properties": {
-        "id": {
+        "Id": {
           "format": "int32",
           "type": "integer"
         },
-        "code": {
+        "Code": {
           "type": "string"
         },
-        "name": {
+        "Name": {
           "type": "string"
         },
-        "active": {
+        "Active": {
           "type": "boolean"
         }
       }
