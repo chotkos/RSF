@@ -26,6 +26,10 @@ var generateDTO = function () {
 					case "number":
 						properties += "\t\tpublic decimal " + columnName + " { get; set; }\n";
 						break;
+					case "array":
+						var typeName = column.items['$ref'].split('/definitions/')[1]+"DTO";
+						properties += "\t\tpublic IList<"+typeName+"> " + columnName + " { get; set; }\n";
+						break;
 					default:
 						properties += "\t\tpublic int? " + columnName + "Id { get; set; }\n";
 
